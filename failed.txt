@@ -1,0 +1,60 @@
+	duty $03
+	vol $2
+	beat od e 12 r 12
+	duty $02
+	vol $4
+	beat ou e 12
+	duty $03
+	vol $2	
+	beat od e 12
+	duty $02
+	vol $4	
+	beat ou e 19 r 5
+; Measures 67-68
+.rept 2
+	beat e 24
+	duty $03
+	vol $2
+	beat od cs 12 r 12
+	duty $02
+	vol $4
+	beat ou e 12
+	duty $03
+	vol $2	
+	beat od cs 12
+	duty $02
+	vol $4	
+	beat ou e 19 r 5	
+.endr
+; Measure 69-70
+.rept 2
+	beat e 24
+	duty $03
+	vol $2
+	beat od e 12 r 12
+	duty $02
+	vol $4
+	beat ou e 12
+	duty $03
+	vol $2	
+	beat od e 12
+	duty $02
+	vol $4	
+	beat ou e 19 r 5
+.endr
+; Measures 71-72
+.rept 2
+	beat e 24
+	duty $03
+	vol $2
+	beat od cs 12 r 12
+	duty $02
+	vol $4
+	beat ou e 12
+	duty $03
+	vol $2	
+	beat od cs 12
+	duty $02
+	vol $4	
+	beat ou e 19 r 5	
+.endr
