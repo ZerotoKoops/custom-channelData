@@ -1,0 +1,35 @@
+hyruleCastleChannel1Measure32a:
+; Measures 32,35,36,41
+	beat as 12 d 12 as 8 as 8 as 8
+	gotoCond $0b hyruleCastleChannel1Measure39b
+	beat as 12 d 12 as 12
+	gotoCond $05 hyruleCastleChannel1Mute
+	beat d 12
+
+	incCoda
+	gotoCond $08 hyruleCastleChannel1Measure32a
+	gotoCond $09 hyruleCastleChannel1Mute
+	gotoCond $0d hyruleCastleChannel1Measure42
+
+hyruleCastleChannel1Measure33:
+; Measures 33,37 & 34,38,40
+	beat ou cs 12
+hyruleCastleChannel1Measure33a:	
+	beat od e 12 ou cs 8 cs 8 cs 8
+	beat cs 12 od e 12 ou cs 12 od e 12
+
+	incCoda
+	transpose $f0
+	gotoCond $06 hyruleCastleChannel1Measure33
+	gotoCond $0a hyruleCastleChannel1Mute
+	
+
+	transpose $00
+	goto hyruleCastleChannel1Measure32a ; $07, $0b
+
+hyruleCastleChannel1Mute:
+	beat r 12
+	gotoCond $05 hyruleCastleChannel1Measure33
+	vol $5
+	gotoCond $09 hyruleCastleChannel1Measure33a
+	goto hyruleCastleChannel1Measure33a ; $0a

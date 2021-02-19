@@ -994,7 +994,6 @@ realmOverworldChannel4Measure44:
 
 realmOverworldChannel6:
 	setCoda $00
-	octave 2
 	.redefine BEAT 1
 ; Measure 1-4
 	beat r 192

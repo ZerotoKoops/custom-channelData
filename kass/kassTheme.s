@@ -133,8 +133,12 @@ kassThemeChannel1Measure18:
 	beat b 24 a 12
 ; Measure 48
 	beat gs 18 fs 6 gs 12
-; Measure 49
-	beat a 36
+; Measure 49-51
+.rept 3
+	beat a 33 r 3
+.endr
+; Measure 52
+	beat e 36
 
 	setCoda $00
 	goto kassThemeChannel1Measure1
@@ -301,7 +305,14 @@ kassThemeChannel0Measure19:
 	octave 3
 	beat gs 24
 ; Measure 49
-	beat a 36
+	octave 4
+	beat r 12 e 21 r 3
+; Measure 50
+	beat r 12 fs 21 r 3
+; Measure 51
+	beat r 12 e 21 r 3
+; Measure 52
+	beat od a 36
 
 	setCoda $00
 	goto kassThemeChannel0Measure1
@@ -621,13 +632,20 @@ kassThemeChannel4Measure18:
 	octave 3
 	duty $0e
 	beat d 8
-; Measure 49
+
 	octave 2
 	duty $0a
+; Measures 49-50
+.rept 2
+	beat a 11 r 1
+.endr
+; Measure 51
+	beat a 8 e 4
+; Measure 52
 	beat a 12
 
 	goto kassThemeChannel4Measure1
 	cmdff
 
-	kassThemeChannel6:
+kassThemeChannel6:
 	cmdff
