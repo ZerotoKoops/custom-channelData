@@ -1,7 +1,7 @@
 kakarikoVillageStart:
 ; BPM 100, Quarter = 36, 3/4 time
 kakarikoVillageChannel1:
-	setCoda $00
+	resetCoda
 	.redefine BEAT 1
 
 ; Measure 1
@@ -48,7 +48,7 @@ kakarikoVillageChannel1Measure4c:
 	beat od as 177 r 3
 
 	gotoCond $01 kakarikoVillageChannel1Measure21c
-	setCoda $01
+	incCoda
 	goto kakarikoVillageChannel1Measure4c
 
 kakarikoVillageChannel1Measure21c:
@@ -85,13 +85,13 @@ kakarikoVillageChannel1Measure21c:
 ; Measures 36-37
 	beat od as 216
 
-	setCoda $00
+	resetCoda
 	goto kakarikoVillageChannel1Measure2
 	cmdff
 
 kakarikoVillageChannel0:
 kakarikoVillageChannel0Measure1:
-	setCoda $00
+	resetCoda
 	.redefine BEAT 1
 
 	octave 2
@@ -184,7 +184,7 @@ kakarikoVillageChannel0Measure5:
 	.endr
 
 	gotoCond $01 kakarikoVillageChannel0Measure22
-	setCoda $01
+	incCoda
 	goto kakarikoVillageChannel0Measure5
 
 kakarikoVillageChannel0Measure22:
@@ -227,13 +227,13 @@ kakarikoVillageChannel0Measure22:
 		beat gs 18 f 18
 	.endr
 
-	setCoda $01
+	incCoda
 	goto kakarikoVillageChannel0Measure22
 	cmdff
 
 kakarikoVillageChannel4:
 kakarikoVillageChannel4Measure1:
-	setCoda $00
+	resetCoda
 	.redefine BEAT 1
 
 ; Measure 1-3
@@ -259,7 +259,7 @@ kakarikoVillageChannel4Measure5:
 .endr
 
 	gotoCond $01 kakarikoVillageChannel4Measure22
-	setCoda $01
+	incCoda
 	goto kakarikoVillageChannel4Measure5
 
 kakarikoVillageChannel4Measure22:
@@ -282,7 +282,7 @@ kakarikoVillageChannel4Measure22:
 ; Measure 29
 	beat gs 108
 
-	setCoda $01
+	incCoda
 	goto kakarikoVillageChannel4Measure22
 	cmdff
 
