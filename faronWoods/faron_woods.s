@@ -1,4 +1,5 @@
 ; $eeb7b
+; $eeb7b
 faronWoodsStart:
 ; @addr{eeb7b}
 faronWoodsChannel1:
@@ -12,12 +13,16 @@ faronWoodsChannel1:
 	beat cs 80
 	vibrato $00
 faronWoodsChannel1Measure2:
+	resetCoda
 	duty $0a
 	vol $0
 	cmdf2
 ; Measure 2-5
 	beat r 255 r 255 r 130
 	vol $6
+
+faronWoodsChannel1Measure6:
+	incCoda
 ; Measure 6
 	beat ou c 3 cs 17 c 20 od gs 20
 	vibrato $81
@@ -57,6 +62,9 @@ faronWoodsChannel1Measure2:
 	vol $0
 	beat r 160
 	vol $6
+
+	gotoCond 1 faronWoodsChannel1Measure6
+
 ; Measure 14
 	duty $0e
 	beat fs 5
@@ -80,14 +88,19 @@ faronWoodsChannel1Measure2:
 	vibrato $e2	
 	beat fs 155
 	vibrato $00
-; Measure 18
+
+faronWoodsChannel1Measure18:
+	incCoda
+; Measure 18,22
 	duty $0a
 	beat ou ds 20 e 20 fs 20 gs 20 ds 60 cs 20
-; Measure 19
+; Measure 19,24
 	vibrato $81	
 	beat ds 120
 	vibrato $00
 	beat gs 20 a 20
+
+	gotoCond 4 faronWoodsChannel1Measure24
 ; Measure 20
 	vibrato $81		
 	beat gs 120 
@@ -98,13 +111,10 @@ faronWoodsChannel1Measure2:
 	vibrato $81		
 	beat fs 114
 	vibrato $00
-; Measure 22
-	beat ds 20 e 20 fs 20 gs 20 ds 60 cs 20	
-; Measure 23
-	vibrato $81	
-	beat ds 120
-	vibrato $00	
-	beat gs 20 a 20
+
+	goto faronWoodsChannel1Measure18
+
+faronWoodsChannel1Measure24:
 ; Measure 24-25
 	vibrato $81	
 	beat gs 80	
@@ -112,6 +122,7 @@ faronWoodsChannel1Measure2:
 	vibrato $e2	
 	beat b 234
 	vibrato $00
+
 ; Measure 26
 	duty $02
 	vol $4
@@ -144,18 +155,24 @@ faronWoodsChannel0:
 	.redefine BEAT 1
 ; Measure 1
 	beat r 160
-faronWoodsChannel0Measure2:
+faronWoodsChannel0Measure2Reset:
+	resetCoda
 	vol $4
 	duty $02
-.rept 24
+faronWoodsChannel0Measure2:
+	incCoda
 ; Measures 2-25
 	beat r 20 gs 20 ds 20 cs 20 gs 20 ds 20 cs 20 gs 20
-.endr
+
+	gotoCond 32 faronWoodsChannel0Measure26
+	goto faronWoodsChannel0Measure2
+
+faronWoodsChannel0Measure26:
 ; Measures 26-29
 	vol $0
 	beat r 255 r 255 r 255 r 195
 
-	goto faronWoodsChannel0Measure2
+	goto faronWoodsChannel0Measure2Reset
 	cmdff
 ; $eee03
 ; @addr{eee03}
@@ -164,25 +181,29 @@ faronWoodsChannel4:
 	.redefine BEAT 1
 ; Measure 1
 	beat r 160
-faronWoodsChannel4Measure2:
-.redefine NOTE_END_WAIT 5
+faronWoodsChannel4Measure2Reset:
+	resetCoda
+	.redefine NOTE_END_WAIT 5
 	duty $0e
 	vol $2
-.rept 6
+	vibrato $e1
+faronWoodsChannel4Measure2:
+	incCoda
 ; Measure 2-3,6-7,10-11,14-15,18-19,22-23
 	.rept 2
-		vibrato $e1
 		beat gs 160
-		vibrato $00
 	.endr
 ; Measure 4-5,8-9,12-13,16-17,20-21,24-25
 	.rept 2
-		vibrato $e1
 		beat a 160
-		vibrato $00
 	.endr
-.endr
-.redefine NOTE_END_WAIT 0
+
+	gotoCond 8 faronWoodsChannel4Measure26
+	goto faronWoodsChannel4Measure2
+
+faronWoodsChannel4Measure26:
+	.redefine NOTE_END_WAIT 0
+	vibrato $00
 	duty $04
 	vol $3
 ; Measure 26
@@ -204,61 +225,44 @@ faronWoodsChannel4Measure2:
 ; @addr{eeffd}
 faronWoodsChannel6:
 ; Measure 1
-	wait1 160
+	beat r 160
 faronWoodsChannel6Measure2:
 	vol $4
-; Measures 2-5
-.rept 4
-	note $2e 20
-	wait1 120
-	note $2e 20
-.endr
-; Measures 6-13
-.rept 8
-	note $2e 20
-	note $2a 20
-	wait1 80
-	note $2a 20
-	note $2e 20
-.endr	
-; Measures 14-17
-.rept 4
-	note $2a 20
-	note $2a 20
-	wait1 20
-	note $2a 20
-	wait1 20
-	note $2a 20
-	wait1 20
-	note $2a 20	
-.endr
-; Measures 18-21
-.rept 4
-	note $2e 20
-	wait1 120
-	note $2e 20
-.endr
-; Measures 22-25
-.rept 4
-	note $2e 20
-	note $2a 20
-	wait1 80
-	note $2a 20
-	note $2e 20
-.endr
-; Measures 26-29
-.rept 4
-	note $2e 20
-	wait1 60
-	note $2a 20
-	note $2a 20
-	wait1 20
-	note $2a 20
-	wait1 20
-	note $2a 20
-	note $2a 20
-	wait1 20
-.endr
+	resetCoda
+faronWoodsChannel6Part1:
+	incCoda
+	beat $2e 140 $2e 20
 
-	goto faronWoodsChannel6Measure2
+	gotoCond 4 faronWoodsChannel6Part2		; Measures 2-5
+	gotoCond 28 faronWoodsChannel6Part4		; Measures 18-21
+	goto faronWoodsChannel6Part1
+
+faronWoodsChannel6Part2:
+	incCoda
+	beat $2e 20 $2a 100 $2a 20 $2e 20
+
+	gotoCond 20 faronWoodsChannel6Part3		; Measures 6-13
+	goto faronWoodsChannel6Part2	
+
+faronWoodsChannel6Part3:
+	incCoda
+	beat $2a 20 $2a 40 $2a 40 $2a 40 $2a 20
+
+	gotoCond 24 faronWoodsChannel6Part1		; Measures 14-17
+	goto faronWoodsChannel6Part3
+
+
+faronWoodsChannel6Part4:
+	incCoda
+	beat $2e 20 $2a 100 $2a 20 $2e 20
+
+	gotoCond 32 faronWoodsChannel6Part5		; Measures 22-25
+	goto faronWoodsChannel6Part4
+
+faronWoodsChannel6Part5:
+	incCoda
+	beat $2e 80 $2a 20 $2a 40 $2a 40 $2a 20 $2a 40
+
+	gotoCond 36 faronWoodsChannel6Measure2		; Measures 26-29
+	goto faronWoodsChannel6Part5
 	cmdff

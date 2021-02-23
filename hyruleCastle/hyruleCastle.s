@@ -128,64 +128,68 @@ hyruleCastleChannel1Measure24:
 	beat d 84 r 12
 	vibrato $00
 
-hyruleCastleChannel1Measure32:
-; Coda = $05
-	vol $4
-	octave 4
-	env $0 $04
-
-hyruleCastleChannel1Measure32a:
-	incCoda
-; Measure 32,35,36,39
-	beat as 12 d 12 as 8 as 8 as 8
-	gotoCond $09 hyruleCastleChannel1Measure39b
-	beat as 12 d 12 as 12 d 12
-
-	gotoCond $07 hyruleCastleChannel1Measure32a
-	gotoCond $0a hyruleCastleChannel1Measure42		;exit loop
-
-; Measure 33,37
-	beat ou cs 12 od e 12 ou cs 8 cs 8 cs 8
-	beat cs 12 od e 12 ou cs 12 od e 12
-
-	gotoCond $09 hyruleCastleChannel1Measure32a
-
-hyruleCastleChannel1Measure34:
-; Measure 34,38
-	beat ou c 12 od ds 12 ou c 8 c 8 c 8
-	beat c 12 od ds 12 ou c 12 od ds 12
-
-	goto hyruleCastleChannel1Measure32a
-
-
-hyruleCastleChannel1Measure39b:
-; Measure 39b
-	duty $01
+; Measure 32
+	octave 3
 	vol $6
-	octave 5
-	beat d 12
-	beat od od g 4 ou c 4 d 4
-	vol $7
-	beat ds 4 f 4 a 4
-	vol $8
-	beat as 4 ou c 4 d 4
+	duty $01
+	beat g 48 r 12
+	beat a 12 as 12 ou d 12
+; Measure 33
+	vibrato $e1
+	beat cs 48 od a 48
+; Measure 34
+	vibrato $82
+	beat ou c 48
+	vibrato $00
+	beat od as 16 fs 16 as 16
+; Measure 35
+	vibrato $e2
+	beat g 96
 
-	vol $5
-	duty $02
-	goto hyruleCastleChannel1Measure34
-
-hyruleCastleChannel1Measure42:
-; Measure 42
-	transpose $00
+; Measure 36
 	octave 4
-	beat g 12 c 12 g 8 g 8 g 8
-	beat g 12 c 12 g 12 c 12
+	vol $7
+	vibrato $82
+	beat g 48 r 12
+	beat a 12 as 12 ou d 12
+; Measure 37
+	vibrato $e1
+	beat cs 48 od a 48
+; Measure 38
+	vibrato $82
+	beat ou c 48
+	vibrato $00
+	beat od as 16 fs 16 as 16
+; Measure 39
+	vibrato $e3
+	beat g 96 
+
+; Measure 40
+	octave 5
+	vol $8
+	vibrato $82
+	beat ds 24
+	vibrato $00
+	env $0 $04
+	beat r 12 ds 6 ds 6
+	beat ds 12 c 12 od g 12 ou ds 12
+; Measure 41
+	env $0 $00
+	vibrato $e2
+	beat d 84 r 12
+; Measure 42
+	vibrato $82
+	beat c 24
+	vibrato $00
+	env $0 $04
+	beat r 12 c 6 c 6
+	beat c 12 od g 12 ds 12 ou c 12	
 ; Measure 43
-	beat g 12 od as 12 ou g 8 g 8 g 8
-	beat g 12 od as 12 ou g 12 od as 12
+	env $0 $00
+	vibrato $e2
+	beat od as 84 r 12
 ; Measure 44
 	octave 5
-	duty $01
 	env $0 $00
 	vibrato $82
 	beat ds 30
@@ -370,68 +374,66 @@ hyruleCastleChannel0Measure24:
 	vibrato $82
 	beat g 48 fs 48
 
-; Measure 32
-	octave 3
+hyruleCastleChannel1Measure32:
+; Coda = $05
+	vol $4
+	octave 4
+	env $0 $04
+	duty $02
+
+hyruleCastleChannel1Measure32a:
+	incCoda
+; Measure 32,35,36,39
+	beat as 12 d 12 as 8 as 8 as 8
+	gotoCond $09 hyruleCastleChannel1Measure39b
+	beat as 12 d 12 as 12 d 12
+
+	gotoCond $07 hyruleCastleChannel1Measure32a
+	gotoCond $0a hyruleCastleChannel1Measure42		;exit loop
+
+; Measure 33,37
+	beat ou cs 12 od e 12 ou cs 8 cs 8 cs 8
+	beat cs 12 od e 12 ou cs 12 od e 12
+
+	gotoCond $09 hyruleCastleChannel1Measure32a
+
+hyruleCastleChannel1Measure34:
+; Measure 34,38
+	beat ou c 12 od ds 12 ou c 8 c 8 c 8
+	beat c 12 od ds 12 ou c 12 od ds 12
+
+	goto hyruleCastleChannel1Measure32a
+
+
+hyruleCastleChannel1Measure39b:
+; Measure 39b
+	duty $01
 	vol $6
-	beat g 48 r 12
-	beat a 12 as 12 ou d 12
-; Measure 33
-	vibrato $e1
-	beat cs 48 od a 48
-; Measure 34
-	vibrato $82
-	beat ou c 48
-	vibrato $00
-	beat od as 16 fs 16 as 16
-; Measure 35
-	vibrato $e2
-	beat g 96
-
-; Measure 36
-	octave 4
-	vol $7
-	vibrato $82
-	beat g 48 r 12
-	beat a 12 as 12 ou d 12
-; Measure 37
-	vibrato $e1
-	beat cs 48 od a 48
-; Measure 38
-	vibrato $82
-	beat ou c 48
-	vibrato $00
-	beat od as 16 fs 16 as 16
-; Measure 39
-	vibrato $e3
-	beat g 96 
-
-; Measure 40
 	octave 5
+	beat d 12
+	beat od od g 4 ou c 4 d 4
+	vol $7
+	beat ds 4 f 4 a 4
 	vol $8
-	vibrato $82
-	beat ds 24
-	vibrato $00
-	env $0 $04
-	beat r 12 ds 6 ds 6
-	beat ds 12 c 12 od g 12 ou ds 12
-; Measure 41
-	env $0 $00
-	vibrato $e2
-	beat d 84 r 12
-; Measure 42
-	vibrato $82
-	beat c 24
-	vibrato $00
-	env $0 $04
-	beat r 12 c 6 c 6
-	beat c 12 od g 12 ds 12 ou c 12	
-; Measure 43
-	env $0 $00
-	vibrato $e2
-	beat od as 84 r 12
+	beat as 4 ou c 4 d 4
 
-; Measure 44 (needs editing)
+	vol $5
+	duty $02
+	goto hyruleCastleChannel1Measure34
+
+hyruleCastleChannel1Measure42:
+; Measure 42
 	octave 4
+	beat g 12 c 12 g 8 g 8 g 8
+	beat g 12 c 12 g 12 c 12
+; Measure 43
+	beat g 12 od as 12 ou g 8 g 8 g 8
+	beat g 12 od as 12 ou g 12 od as 12
+
+; Measure 44
+	octave 4
+	duty $01
+	env $0 $00
 	vibrato $82
 	beat g 30
 	vibrato $00
@@ -483,7 +485,7 @@ hyruleCastleChannel4:
 
 hyruleCastleChannel4Measure4a:
 	resetCoda
-	duty $0f
+	duty $14
 hyruleCastleChannel4Measure4:
 ; Measure 4
 	beat g 48 f 48
@@ -509,7 +511,7 @@ hyruleCastleChannel4Measure16:
 
 hyruleCastleChannel4Measure24:
 ; Coda == $09
-;	duty $0e
+	duty $0e
 	octave 2
 ; Measures 24,26
 	beat gs 32 ou ds 8 gs 8
@@ -521,7 +523,7 @@ hyruleCastleChannel4Measure24:
 	incCoda
 	gotoCond $0b hyruleCastleChannel4Measure24
 
-; Coda == $0b
+; Coda == $0c
 ; Measure 28
 	beat as 32 ou ds 8 f 8
 	beat as 36 od as 12
@@ -532,6 +534,7 @@ hyruleCastleChannel4Measure24:
 	beat od gs 8 gs 8
 	.redefine NOTE_END_WAIT 0
 ; Measure 30
+	duty $0a
 	beat a 32 ou ds 8 g 8
 	beat a 36 od a 6 r 6
 ; Measure 31
@@ -540,16 +543,22 @@ hyruleCastleChannel4Measure24:
 	.redefine NOTE_END_WAIT 2
 	beat od d 8 d 8
 
-;	duty $0f
+	.redefine NOTE_END_WAIT 0
 	octave 2
 hyruleCastleChannel4Measure32:
 	incCoda
 ; Measure 32,35,36,39,44
 .rept 6
-	beat g 12
+	duty $0e
+	beat g 6
+	duty $0f
+	beat g 5 r 1
 .endr
 .rept 3
-	beat g 8
+	duty $0e
+	beat g 4
+	duty $0f
+	beat g 3 r 1
 .endr
 	gotoCond $0e hyruleCastleChannel4Measure32
 	gotoCond $10 hyruleCastleChannel4Measure40
@@ -558,20 +567,32 @@ hyruleCastleChannel4Measure32:
 hyruleCastleChannel4Measure33:
 ; Measure 33,37,43,47
 .rept 6
-	beat a 12
+	duty $0e
+	beat a 6
+	duty $0f
+	beat a 5 r 1
 .endr
 .rept 3
-	beat a 8
+	duty $0e
+	beat a 4
+	duty $0f
+	beat a 3 r 1
 .endr
 	gotoCond $10 hyruleCastleChannel4Measure32
 	gotoCond $11 hyruleCastleChannel4Measure4a	;back to beginning
 
 ; Measure 34,38
 .rept 6
-	beat fs 12
+	duty $0e
+	beat fs 6
+	duty $0f
+	beat fs 5 r 1
 .endr
 .rept 3
-	beat fs 8
+	duty $0e
+	beat fs 4
+	duty $0f
+	beat fs 3 r 1
 .endr
 	goto hyruleCastleChannel4Measure32
 
@@ -579,18 +600,30 @@ hyruleCastleChannel4Measure40:
 ; Measure 40,45
 	octave 3
 .rept 6
-	beat c 12
+	duty $0e
+	beat c 6
+	duty $0f
+	beat c 5 r 1
 .endr
 .rept 3
-	beat c 8
+	duty $0e
+	beat c 4
+	duty $0f
+	beat c 3 r 1
 .endr
 ; Measure 41,46
-	octave 2
+	octaved
 .rept 6
-	beat as 12
+	duty $0e
+	beat as 6
+	duty $0f
+	beat as 5 r 1
 .endr
 .rept 3
-	beat as 8
+	duty $0e
+	beat as 4
+	duty $0f
+	beat as 3 r 1
 .endr
 	goto hyruleCastleChannel4Measure33
 
