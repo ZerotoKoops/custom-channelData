@@ -300,7 +300,7 @@
 
 ; fd: sets wc033
 ; Shifts pitch
-.macro transpose
+.macro cmdfd
 	.db $fd \1
 .endm
 

@@ -676,7 +676,7 @@ _doNextChannelCommand:
 ;
 _channelCmdf1:
 	call _getNextChannelByte
-	ld hl,wVolta
+	ld hl,wChannelCodas
 call _getChannelVarInHL
 	bit 7,(hl)
 	jr nz,+
@@ -694,7 +694,7 @@ _channelCmdf2:
 ; incCoda
 ;
 _channelCmdf3:
-	ld hl,wVolta
+	ld hl,wChannelCodas
 	call _getChannelVarInHL
 	inc (hl)
 	jp _doNextChannelCommand
@@ -702,7 +702,7 @@ _channelCmdf3:
 ; resetCoda
 ;
 _channelCmdf4:
-	ld hl,wVolta
+	ld hl,wChannelCodas
 	call _getChannelVarInHL
 	ld (hl),$00
 	jp _doNextChannelCommand

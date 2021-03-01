@@ -120,7 +120,7 @@ wChannelWaitCounters: ; $c075
 	dsb 8
 wChannelVolumes: ; $c07d
 	dsb 8
-wVolta: ; $c085-$c088 (8c)
+wChannelCodas: ; $c085-$c088 (8c)
 	dsb 8
 ; $c085-$$c09f unused?
 
