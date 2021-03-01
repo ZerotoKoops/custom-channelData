@@ -152,76 +152,76 @@ Coda Macros
 4. There are two main ways to use the Coda macros with the conditional jump:
 	1. If you want to only repeat once:
 
-		>	resetCoda
+		>>	resetCoda
         >
 		>mapleMinigameChannel1Measure2:
         >
         >; Measure 2
         >
-		>	incCoda
+		>>	incCoda
         >
-		>	octave 3
+		>>	octave 3
         >
-		>	beat g 48
+		>>	beat g 48
         >
 		>	
-		>	gotoCond 1 mapleMinigameChannel1Measure2
+		>>	gotoCond 1 mapleMinigameChannel1Measure2
         >
         >
 		>mapleMinigameChannel1Measure3:
         >
         >; Measure 3
         >
-		>	etc.
+		>>	etc.
         >
 
 	2. If you want to repeat more than once:
 
-		>	resetCoda
+		>>	resetCoda
         >
 		>mapleMinigameChannel1Measure2:
         >
 		>; Measure 2
         >
-		>	incCoda
+		>>	incCoda
         >
-		>	octave 3
+		>>	octave 3
         >
-		>	beat g 24
+		>>	beat g 24
         >
 		>	
-		>	gotoCond 4 mapleMinigameChannel1Measure3
+		>>	gotoCond 4 mapleMinigameChannel1Measure3
         >
-		>	goto mapleMinigameChannel1Measure2
+		>>	goto mapleMinigameChannel1Measure2
         >
 		>
 		>mapleMinigameChannel1Measure3:
         >
 		>; Measure 3
         >
-		>	etc.
+		>>	etc.
         >
 
 5. incCoda can be stacked, meaning that a ResetCoda is not necessary to create a new chain.
 	1. You should notate the value of coda after noteworthy jumps so to not get confused.
 	2. Example:
 
-		>	resetCoda
+		>>	resetCoda
         >
 		>mapleMinigameChannel1Measure2:
         >
 		>; Measure 2
         >
-		>	incCoda
+		>>	incCoda
         >
-		>	octave 3
+		>>	octave 3
         >
-		>	beat g 24
+		>>	beat g 24
         >
 		>	
-		>	gotoCond 4 mapleMinigameChannel1Measure3
+		>>	gotoCond 4 mapleMinigameChannel1Measure3
         >
-		>	goto mapleMinigameChannel1Measure2
+		>>	goto mapleMinigameChannel1Measure2
         >
 		>
 		>mapleMinigameChannel1Measure3:
@@ -230,21 +230,21 @@ Coda Macros
         >
 		>; Measure 3
         >
-		>	incCoda
+		>>	incCoda
         >
-		>	octave 3
+		>>	octave 3
         >
-		>	beat g 48
+		>>	beat g 48
         >
 		>	
-		>	gotoCond 5 mapleMinigameChannel1Measure3		;this is 5 because we want it to jump the first time.
+		>>	gotoCond 5 mapleMinigameChannel1Measure3		;this is 5 because we want it to jump the first time.
         >
         >
 		>mapleMinigameChannel1Measure4:
         >
 		>; Measure 4
         >
-		>	etc.
+		>>	etc.
         >
 
 Supplemental Music Notation Software
