@@ -1,7 +1,10 @@
+Readme
+=======
+
 This is a list of rules that should be considered when writing music code.
 All of these notes are when coding for channels 1, 0, 4 and 6.
 The author has not enough experience to write for channels 2, 3, 5 and 7.
-==============================================================================
+---------------------------------------------------------------------------
 
 Rests
 ---------------------------------
