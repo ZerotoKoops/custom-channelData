@@ -290,7 +290,7 @@ How to Use these Folders
             2. Go to soundPointers.s and do the same, but this time there should only be one label to replace.
         2. If you did not use replacement:
             1. Do the same as i., but add a new (set of) lines to each file as to complete a new set of labels.
-    5. At this point, you should be able to Make the game. If there are any errors, make sure you did everything exactly as the instructions. If you are completely confident, contact me at the [discord](https://discord.gg/wCpPPNZ "Oracles romhacking discord")
+    5. At this point, you should be able to Make the game. If there are any errors, make sure you did everything exactly as the instructions. If you're still getting errors, contact me at the [Oracles romhacking discord](https://discord.gg/wCpPPNZ "Oracles romhacking discord")
 
 
 
