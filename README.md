@@ -19,10 +19,13 @@ Tempo and Note Lengths
 3. There are no measure macros, so measures should be commented in as to make reading easier.
 4. Use ".redefine BEAT [value] if you would like to take out a common factor of your input lengths.
 	1. For example, if you have
-		beat a 12 b 24 c 6
+		>beat a 12 b 24 c 6
+        >
 	2. You can shorten this by using
-		.redefine BEAT 6
-		beat a 2 b 4 c 1
+		>.redefine BEAT 6
+        >
+		>beat a 2 b 4 c 1
+        >
 	3. NOTE: This does not change the size of byte (in-game data will still read 12, 24, etc. [$0c, $18, etc.])
 5. It is suggested to use decimals for lengths unless you are comfortable with hexadecimal arithmetic.
 6. This data is written into bits, so no value can be greater than 255 [$ff].
@@ -62,24 +65,30 @@ Beat Macro
 		1. d c g
 		2. Go to Pitches section to learn how to set octaves in the Relative system.
 	3. Thus, the Beat macro can either look like this
-		1. beat d5 24 c3 6 g4 12	;or this
-		2. beat d 24 od od c 24 ou g 12
-			a) Go to Pitches to learn what "od" and "ou" mean.
+		> beat d5 24 c3 6 g4 12	;or this
+        >
+		> beat d 24 od od c 24 ou g 12
+        >
+	4. Go to Pitches to learn what "od" and "ou" mean.
 
 
 Pitches
 ---------------------------------
 1. Always start music with the Octave macro, as that will define your octave when using relative pitches.
 	1. For example, if the base game data shows
-		note g3 $18
+		>note g3 $18
+        >
 	2. This translates as
-		octave 3
-		beat g 24
+		>octave 3
+        >
+		>beat g 24
+        >
 2. You can shift octaves by either using the Beat macro
 	1. beat ou		;for octave up
 	2. beat od		;for octave down
 	3. These can be combined into single lines with actual pitch data
-		1. beat a 8 b 8 ou c 8 d 24
+		>beat a 8 b 8 ou c 8 d 24
+        >
 3. You can also use single line macros.
 	1. octaveu
 	2. octaved
@@ -89,7 +98,8 @@ Pitches
 	1. It causes the audio to glitch and strains the ears.
 	2. This is allowable when notes are relatively quick, but should still be avoided.
 6. If you wish to repeat the same pitch subsequently, put a space of at least 2 (BEAT == 1) between each note.
-	1. beat a 22 r 2 a 24
+	>beat a 22 r 2 a 24
+    >
 
 
 
@@ -269,7 +279,7 @@ Supplemental Music Notation Software
 	better spatial reasoning in the music.
 2. Try to remember what each note length translates to in the music! This is imperative if you decide to use notation software.
 
-How to Use these Folders
+How to Use this Repository
 =========================
 1. Within each of these folders, there are several files. Typically, they will have 2-3, if not 4.
     1. S file [.s]
@@ -288,8 +298,9 @@ How to Use these Folders
             1. Go to soundChannelPointers.s and replace whatever sound name you used to using the title of the S file concatenated with the proper channel number.
                 > mapleMinigame.s --> mapleMinigameStart, mapleMinigameChannel1, etc.
             2. Go to soundPointers.s and do the same, but this time there should only be one label to replace.
+            3. You should also go to constants/music.s and replace the appropriate label for your sound if you're building a game from scratch. This is not recommended unless you are prepared for error messages where the original label was used in the disassembly.
         2. If you did not use replacement:
-            1. Do the same as i., but add a new (set of) lines to each file as to complete a new set of labels.
+            1. Do the same as a., but add a new (set of) lines to each file as to complete a new set of labels.
     5. At this point, you should be able to Make the game. If there are any errors, make sure you did everything exactly as the instructions. If you're still getting errors, contact me at the [Oracles romhacking discord](https://discord.gg/wCpPPNZ "Oracles romhacking discord")
 
 
