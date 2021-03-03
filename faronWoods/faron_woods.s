@@ -162,7 +162,8 @@ faronWoodsChannel0Measure2Reset:
 faronWoodsChannel0Measure2:
 	incCoda
 ; Measures 2-25
-	beat r 20 gs 20 ds 20 cs 20 gs 20 ds 20 cs 20 gs 20
+	beat r 20 gs 20 ds 20 cs 20
+	beat gs 20 ds 20 cs 20 gs 20
 
 	gotoCond 32 faronWoodsChannel0Measure26
 	goto faronWoodsChannel0Measure2
@@ -207,19 +208,27 @@ faronWoodsChannel4Measure26:
 	duty $04
 	vol $3
 ; Measure 26
-	beat ou ou d 20 cs 20 od gs 20 fs 20 gs 20 fs 20
-	beat e 20 gs 20 fs 20 ou cs 20 od gs 20 fs 20
+	beat ou ou d 20 cs 20 od gs 20
+	beat fs 20 gs 20 fs 20
+	beat e 20 gs 20 fs 20
+	beat ou cs 20 od gs 20 fs 20
 ; Measure 27
-	beat ou e 20 ds 20 od b 20 as 20 b 20 as 20
-	beat e 20 b 20 as 20 ou ds 20 od b 20 as 20
+	beat ou e 20 ds 20 od b 20
+	beat as 20 b 20 as 20
+	beat e 20 b 20 as 20
+	beat ou ds 20 od b 20 as 20
 ; Measure 28
-	beat ou cs 20 od b 20 g 20 e 20 g 20 e 20
-	beat cs 20 g 20 e 20 b 20 g 20 e 20
+	beat ou cs 20 od b 20
+	beat g 20 e 20 g 20 e 20
+	beat cs 20 g 20 e 20
+	beat b 20 g 20 e 20
 ; Measure 29
-	beat ou e 20 cs 20 od as 20 g 20 as 20 g 20
-	beat ds 20 as 20 gs 20 ou cs 20 od as 20 gs 20
+	beat ou e 20 cs 20 od as 20
+	beat g 20 as 20 g 20
+	beat ds 20 as 20 gs 20
+	beat ou cs 20 od as 20 gs 20
 
-	goto faronWoodsChannel4Measure2
+	goto faronWoodsChannel4Measure2Reset
 	cmdff
 ; $eeffd
 ; @addr{eeffd}
@@ -234,7 +243,7 @@ faronWoodsChannel6Part1:
 	beat $2e 140 $2e 20
 
 	gotoCond 4 faronWoodsChannel6Part2		; Measures 2-5
-	gotoCond 28 faronWoodsChannel6Part4		; Measures 18-21
+	gotoCond 28 faronWoodsChannel6Part2		; Measures 18-21
 	goto faronWoodsChannel6Part1
 
 faronWoodsChannel6Part2:
@@ -242,6 +251,7 @@ faronWoodsChannel6Part2:
 	beat $2e 20 $2a 100 $2a 20 $2e 20
 
 	gotoCond 20 faronWoodsChannel6Part3		; Measures 6-13
+	gotoCond 32 faronWoodsChannel6Part4		; Measures 22-25
 	goto faronWoodsChannel6Part2	
 
 faronWoodsChannel6Part3:
@@ -251,18 +261,10 @@ faronWoodsChannel6Part3:
 	gotoCond 24 faronWoodsChannel6Part1		; Measures 14-17
 	goto faronWoodsChannel6Part3
 
-
 faronWoodsChannel6Part4:
-	incCoda
-	beat $2e 20 $2a 100 $2a 20 $2e 20
-
-	gotoCond 32 faronWoodsChannel6Part5		; Measures 22-25
-	goto faronWoodsChannel6Part4
-
-faronWoodsChannel6Part5:
 	incCoda
 	beat $2e 80 $2a 20 $2a 40 $2a 40 $2a 20 $2a 40
 
 	gotoCond 36 faronWoodsChannel6Measure2		; Measures 26-29
-	goto faronWoodsChannel6Part5
+	goto faronWoodsChannel6Part4
 	cmdff
