@@ -1,0 +1,24 @@
+; Measure 20-21
+	octave 4
+.rept 2
+	beat cs 2 d 6
+.endr
+	beat cs 2 d 12
+; Measure 22-23
+	beat r 2
+.rept 2
+	beat c 2 cs 6
+.endr
+	beat c 2 cs 12
+; Measure 24-25
+	beat r 2
+.rept 2
+	beat od b 2 ou c 6
+.endr
+	beat od b 2 ou c 12
+; Measure 26-27
+	beat r 2
+.rept 2
+	beat c 2 cs 6
+.endr
+	beat c 2 cs 12

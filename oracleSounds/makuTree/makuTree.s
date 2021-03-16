@@ -1,5 +1,7 @@
 ; $e7c65
 ; @addr{e7c65}
+sound1eStart:
+
 sound1eChannel1:
 	vol $0
 	note gs3 $14

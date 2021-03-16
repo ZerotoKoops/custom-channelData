@@ -1,0 +1,90 @@
+faronWoodsChannel1Measure26:
+; Coda 4
+	incCoda
+; Measure 26
+	duty $01
+	vol $6
+	beat fs 3 a 3 ou cs 3 d 1
+	vol $3
+	beat d 10
+
+	vol $6
+	beat cs 10
+	vol $3
+	beat cs 10
+
+	vol $6	
+	beat od gs 10
+	vol $3
+	beat gs 10
+
+	vol $6
+	beat fs 10
+	vol $3
+	beat fs 10 r 160
+
+; Measure 27
+	octave 5
+	vol $6
+	beat e 10
+	vol $3
+	beat e 10
+
+	vol $6
+	beat ds 10
+	vol $3
+	beat ds 10
+
+	vol $6	
+	beat od b 10
+	vol $3
+	beat b 10
+
+	vol $6
+	beat as 10
+	vol $3
+	beat as 10 r 160
+
+; Measure 28
+	octave 4
+	vol $6
+	beat e 3 g 3 b 3 ou cs 1
+	vol $3
+	beat cs 10
+	
+	vol $6	
+	beat od b 10
+	vol $3
+	beat b 10
+
+	vol $6	
+	beat gs 10
+	vol $3
+	beat gs 10
+
+	vol $6
+	beat e 10
+	vol $3
+	beat e 10 r 160
+
+; Measure 29
+	octave 5
+	vol $6
+	beat e 10
+	vol $3
+	beat e 10
+
+	vol $6
+	beat cs 10
+	vol $3
+	beat cs 10
+
+	vol $6	
+	beat od as 10
+	vol $3
+	beat as 10
+
+	vol $6	
+	beat g 10	
+	vol $3
+	beat g 10 r 160

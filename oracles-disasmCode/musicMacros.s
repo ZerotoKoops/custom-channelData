@@ -219,6 +219,92 @@
 	.endr
 .endm
 
+
+; A variation of the "beat" macro that includes a common functionality of the
+; volume adjustments in the music. 
+;	volbeat a 2
+;	
+;	vol $6
+;	beat a 1
+;	vol $3
+;	beat a 1
+.macro volbeat
+	.redefine offset 0
+	.rept NARGS
+	.if NARGS >= 1
+		.if \1 == od
+			octaved
+			.redefine offset offset-12
+			.shift
+		.else
+		.if \1 == ou
+			octaveu
+			.redefine offset offset+12
+			.shift
+		.endif
+		.endif
+	.endif
+
+	.if NARGS >= 2
+	.if \1 == r
+		wait1 \2*BEAT
+		.shift
+		.shift
+	.else
+
+		.ifndef HI_VOL
+			.define HI_VOL 0
+		.endif	
+
+		.ifndef LO_VOL
+			.define LO_VOL 0
+		.endif	
+		.ifndef NO_FIRST_VOL
+			.define NO_FIRST_VOL 0
+		.endif	
+
+	.if \1 >= 0
+		.if NO_FIRST_VOL == 0
+			.if CHANNEL == 4
+				duty HI_VOL
+			.else
+				vol HI_VOL
+			.endif
+		.endif
+
+		.db \1+offset
+		.db \2*BEAT*(1-LO_NOTE_RATIO)
+
+		.if CHANNEL == 4
+			duty LO_VOL
+		.else
+			vol LO_VOL
+		.endif
+
+		.db \1+offset
+
+		.ifndef NOTE_END_WAIT
+			.define NOTE_END_WAIT 0
+		.endif
+
+		.if NOTE_END_WAIT != 0
+			.db \2*BEAT*LO_NOTE_RATIO - NOTE_END_WAIT
+			wait1 NOTE_END_WAIT
+		.else
+			.db \2*BEAT*LO_NOTE_RATIO
+		.endif
+
+
+		.shift
+		.shift
+	.endif
+	.endif
+	.endif
+	.endr
+.endm
+
+
+
 ; 60/61: set wait counters.
 
 .macro wait1
