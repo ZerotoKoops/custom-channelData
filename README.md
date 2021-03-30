@@ -287,7 +287,7 @@ How to Use this Repository
     3. Music file [.mp3]
     4. Music Sheet used for transposition [.pdf]
 2. To insert the music into your romhack
-	1. Replace the three files in oracles-disasmCode in this repository. (This only needs to be done once, unless there is a new commit to these files.)
+	1. Replace the three files in disasmCode in this repository. (This only needs to be done once, unless there is a new commit to these files.)
         1. audio.s goes in oracles-disasm/code/
         2. musicMacros.s and wram.s go in oracles-disasm/include/
             1. If you are not able to completely replace wram.s, you may search for "wChannelCodas" within the file and replace the necessary data into your own wram.s.
@@ -301,7 +301,7 @@ How to Use this Repository
             3. You should also go to constants/music.s and replace the appropriate label for your sound if you're building a game from scratch. This is not recommended unless you are prepared for error messages where the original label was used in the disassembly.
         2. If you did not use replacement:
             1. Do the same as a., but add a new (set of) lines to each file as to complete a new set of labels.
-    5. At this point, you should be able to Make the game. If there are any errors, make sure you did everything exactly as the instructions. If you're still getting errors, contact me at the [Oracles romhacking discord](https://discord.gg/wCpPPNZ "Oracles romhacking discord")
+    5. At this point, you should be able to Make the game. If there are any errors, make sure you did everything exactly as the instructions. If you're still getting errors, contact me at the [Oracles romhacking discord](https://discord.gg/wCpPPNZ "Oracles romhacking discord").
 
 
 
