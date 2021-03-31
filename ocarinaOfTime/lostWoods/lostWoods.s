@@ -130,6 +130,7 @@ lostWoodsChannel1Measure16:
 	vibrato $e2
     beat e 65 
 	vol $6
+	vibrato $02
 	beat e 26
 	vol $3
 	beat e 13 r 78
@@ -256,7 +257,7 @@ lostWoodsChannel0Measure16:
     beat d 13 c 7 r 6
     beat f 13 e 7 r 6
     vol $6
-    beat g 13 e 7 r 6
+    beat g 13 f 7 r 6
     beat a 13 g 7 r 6
 ; Measure 17
 	vol $7
@@ -264,12 +265,13 @@ lostWoodsChannel0Measure16:
     beat ou c 13 od b 7 r 6
 	vol $8
     beat ou d 13 c 7 r 6
-    beat od b 7 ou c 12 od b 7
+    beat od b 7 ou c 12 od a 7
 ; Measure 18
     env $1 $00
     vibrato $e2
     beat b 65 
 	vol $6
+	vibrato $02
 	beat b 26
 	vol $3
 	beat b 13 r 13

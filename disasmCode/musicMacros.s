@@ -240,7 +240,12 @@
 			
 		.ifndef NO_FIRST_VOL
 			.define NO_FIRST_VOL 0
-		.endif	
+		.endif
+
+		.ifndef REST
+			.define REST 0
+		.endif
+		.redefine REST 0
 
 		.ifndef CHANNEL
 			.define CHANNEL 0
@@ -326,6 +331,108 @@
 .endm
 
 
+;; Used in Tarm Ruins music
+;	tarmbeat a 24 b 24 c 24
+;
+;	vol HI_VOL
+;	beat a 12
+;	wait1 12
+;
+;	beat b 12
+;	vol LO_VOL
+;	beat a 12
+;
+;	vol HI_VOL
+;	beat c 12
+;	vol LO_VOL
+;	beat b 12
+;
+;
+.macro tarmbeat
+	.redefine offset 0
+	.rept NARGS
+	.if NARGS >= 1
+		.if \1 == od
+			octaved
+			.redefine offset offset-12
+			.shift
+		.else
+		.if \1 == ou
+			octaveu
+			.redefine offset offset+12
+			.shift
+		.endif
+		.endif
+	.endif
+
+	.if NARGS >= 2
+	.if \1 == r
+		wait1 \2*BEAT
+		.shift
+		.shift
+	.else
+	.if \1 >= 0
+
+
+		.ifndef HI_VOL
+			.define HI_VOL 0
+		.endif	
+
+		.ifndef LO_VOL
+			.define LO_VOL 0
+		.endif
+			
+		.ifndef NO_FIRST_VOL
+			.define NO_FIRST_VOL 0
+		.endif	
+
+		.ifndef CHANNEL
+			.define CHANNEL 0
+		.endif
+			
+		.ifndef TARM_NOTE
+			.define TARM_NOTE 0
+		.endif
+
+		;First volume change
+		.if NO_FIRST_VOL == 0
+			.if CHANNEL == 4
+				duty HI_VOL
+			.else
+				vol HI_VOL
+			.endif
+		.endif
+		;First note
+		.db \1+offset
+		.db \2*BEAT*(1-LO_VOL_RATIO)
+
+		;Second volume change
+		.if TARM_NOTE != 0
+			.if CHANNEL == 4
+				duty LO_VOL
+			.else
+				vol LO_VOL
+			.endif
+
+		;Second note
+			.db TARM_NOTE
+			.db \2*BEAT*LO_VOL_RATIO
+			.redefine NO_FIRST_VOL 0
+		.else
+			wait1 \2*BEAT*LO_VOL_RATIO
+			.redefine NO_FIRST_VOL 1
+		.endif
+
+			.redefine TARM_NOTE \1+offset
+
+
+		.shift
+		.shift
+	.endif
+	.endif
+	.endif
+	.endr
+.endm
 
 ; 60/61: set wait counters.
 
