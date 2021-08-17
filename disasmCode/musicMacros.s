@@ -280,6 +280,7 @@
 			.else
 				vol HI_VOL
 			.endif
+			.redefine NO_FIRST_VOL 0
 		.endif
 
 		;First note
