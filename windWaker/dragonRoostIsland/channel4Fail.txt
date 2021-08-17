@@ -1,0 +1,127 @@
+dragonRoostIslandChannel4Measure5:
+; Coda == 0,2,4,6,12-13
+	incCoda
+; Measure 5,9,11,13,19-20
+	octave 3
+	duty $0e
+	beat g 17
+	duty $0f
+	beat g 5
+.rept 4
+	duty $0e
+	beat g 8
+	duty $0f
+	beat g 3
+.endr
+
+	gotoCond 0+1 dragonRoostIslandChannel4Measure6 ; M6
+	gotoCond 12+1 dragonRoostIslandChannel4Measure5 ; M20
+
+; fall through 4x; M10,M12,M14,M21
+dragonRoostIslandChannel4Measure10:
+; Coda == 3,5,7,14-15
+	incCoda
+; Measure 10,12,14,21-22
+	octave 3
+	duty $0e
+	beat f 17
+	duty $0f
+	beat f 5
+.rept 4
+	duty $0e
+	beat f 8
+	duty $0f
+	beat f 3
+.endr	
+
+	gotoCond 7+1 dragonRoostIslandChannel4Measure15 ; M15
+	gotoCond 14+1 dragonRoostIslandChannel4Measure10 ; M22
+	gotoCond 15+1 dragonRoostIslandChannel4Measure23 ; M23
+	goto dragonRoostIslandChannel4Measure5 ; M11,M13
+
+dragonRoostIslandChannel4Measure15:
+; Coda == 8-9
+	incCoda
+; Measure 15-16
+	octave 3
+	duty $0e
+	beat as 17
+	duty $0f
+	beat as 5
+.rept 4
+	duty $0e
+	beat as 8
+	duty $0f
+	beat as 3
+.endr		
+	gotoCond 8+1  dragonRoostIslandChannel4Measure15 ; M16
+
+; fall through
+dragonRoostIslandChannel4Measure17:
+; Coda == 10-11
+	incCoda
+; Measure 17-18
+	octave 3
+	duty $0e
+	beat gs 17
+	duty $0f
+	beat gs 5
+.rept 4
+	duty $0e
+	beat gs 8
+	duty $0f
+	beat gs 3
+.endr		
+	gotoCond 10+1  dragonRoostIslandChannel4Measure17 ; M18
+	goto dragonRoostIslandChannel4Measure5 ; M19
+
+dragonRoostIslandChannel4Measure23:
+; Coda == 16-18
+	incCoda
+; Measure 23-25
+	octave 3
+	duty $0e
+	beat ds 17
+	duty $0f
+	beat ds 5
+.rept 4
+	duty $0e
+	beat ds 8
+	duty $0f
+	beat ds 3
+.endr
+
+	gotoCond 18+1 dragonRoostIslandChannel4Measure26 ; M26
+	goto dragonRoostIslandChannel4Measure23 ; M23,M24,M25
+
+
+dragonRoostIslandChannel4Measure7:
+; Coda == 0
+	incCoda
+; Measure 7
+	octave 3
+.rept 2
+	duty $0e
+	beat g 17
+	duty $0f
+	beat g 5
+.endr
+.rept 2
+	duty $0e
+	beat g 8
+	duty $0f
+	beat g 3
+.endr
+
+dragonRoostIslandChannel4Measure6:
+; Coda == 1,2
+; Measure 6,8
+	octave 3
+.rept 3
+	duty $0e
+	beat f 17
+	duty $0f
+	beat f 5
+.endr
+	gotoCond 1+0 dragonRoostIslandChannel4Measure7 ; M7
+    goto dragonRoostIslandChannel4Measure5

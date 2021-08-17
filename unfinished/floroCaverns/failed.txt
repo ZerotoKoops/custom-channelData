@@ -1,0 +1,24 @@
+floroCavernsChannel0Measure1Reset:
+    resetCoda
+    vol $3
+    duty $03
+floroCavernsChannel0Measure1:
+; Coda == 0
+    incCoda
+; Measure 1,2
+    octave 4
+    beat cs 4 ou c 3 od cs 3
+    beat ou c 4 od cs 3 ou c 3
+    beat od cs 4 ou c 3
+
+    gotoCond 0+4 floroCavernsChannel0Vol2
+    gotoCond 4+2 floroCavernsChannel0Vol1
+    gotoCond 0+8 floroCavernsChannel0Measure3
+    goto floroCavernsChannel0Measure1
+
+floroCavernsChannel0Vol2:
+    vol $2
+    goto floroCavernsChannel0Measure1
+floroCavernsChannel0Vol1:
+    vol $1
+    goto floroCavernsChannel0Measure1

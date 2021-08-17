@@ -1,0 +1,18 @@
+   octave 6
+    duty $03
+    env $0 $05
+	vol $6
+
+    beat fs 1 d 1 od b 1 g 1
+; Measure 2
+    octaveu
+    beat g 1 ds 1 c 1
+    octaved
+    beat gs 1 ds 1 r 3
+; Measure 3b
+    octaveu
+.redefine TARM_NOTE 0
+    beat fs 1 d 1 od b 1 g 1
+; Measure 4
+    octaveu
+    beat f 1 cs 1

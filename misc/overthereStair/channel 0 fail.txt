@@ -1,0 +1,86 @@
+	vol $0
+	beat g3 1
+overthereStairChannel0Measure1bReset:
+	resetCoda
+overthereStairChannel0Measure1b:
+	duty $01
+	env $0 $07
+; Coda == 0,1
+	incCoda
+; Measure 1b,5b
+	octave 4
+	volbeat fs 1 fs 1
+; Measure 2,6
+	volbeat r 1 g 1 r 2
+; Measure 3b,7b
+	volbeat fs 1 fs 1 r 1
+	gotoCond 0+3 overthereStairChannel0Measure12b
+
+; Measure 4b,8b
+	volbeat od as 1 r 2
+
+	goto overthereStairChannel0Measure1b
+
+overthereStairChannel0Measure12b:
+; Coda == 2
+; Measure 12b
+	octave 4
+	volbeat fs 1 r 2
+; Measure 13b
+	volbeat fs 1 fs 1
+; Measure 14
+	volbeat r 1 gs 1 r 2
+; Measure 15b
+	volbeat e 1 e 1
+; Measure 16
+	volbeat r 1 fs 1 r 2
+; Measure 17b
+	volbeat d 1 d 1
+; Measure 18
+	volbeat r 1 f 1 f 1
+; Measure 19
+	volbeat r 1 c 1 c 1
+
+
+
+
+
+
+
+
+
+    vol $0
+    beat g3 7	;rest
+    octave 5
+	env $2 $07
+    duty $02
+	vol $3
+    beat fs 2 d 2
+	beat od b 2 g 2
+; Measure 2
+    octaveu
+    beat g 2 ds 2 c 2
+    octaved
+    beat gs 2 ds 2 r 6
+; Measure 3b
+    octaveu
+    beat fs 2 d 2 od b 2 g 2
+; Measure 4
+    octaveu
+    beat f 2 cs 2 od as 2
+	beat f 2 cs 2 r 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
