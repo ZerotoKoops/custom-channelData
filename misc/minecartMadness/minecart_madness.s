@@ -6,6 +6,7 @@ minecartMayhemChannel1:
 	cmdf2
 	octave 4
 	.redefine BEAT 1
+.redefine NO_FIRST_VOL 0
 ; Measure 1,2
 	vol $0
 	wait1 192

@@ -2,6 +2,7 @@ lostWoodsStart:
 ; BPM = 138.46, B = 26, M = 104
 lostWoodsChannel1:
 .redefine BEAT 1
+.redefine NO_FIRST_VOL 0
 ; Measure 1
 ; rest
     vol $0

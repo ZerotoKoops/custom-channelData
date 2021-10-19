@@ -1,0 +1,107 @@
+; Measure 2
+	octave 3	
+	duty HI_VOL
+	beat gs E1
+	duty LO_VOL
+	beat gs S3 r S4
+
+	duty HI_VOL
+	beat fs E1
+	duty LO_VOL
+	beat fs S3 r S4
+
+	duty HI_VOL
+	beat gs E1
+	duty LO_VOL
+	beat gs S3 r S4
+
+	duty HI_VOL
+	beat b E1
+	duty LO_VOL
+	beat b S3 r S4
+; Measure 3
+.rept 3
+	duty HI_VOL
+	beat b E1
+	duty LO_VOL
+	beat b S3 r S4
+.endr
+	duty HI_VOL
+	beat a E1 od gs E2
+; Measure 4
+	octave 3
+	beat cs E1
+	duty LO_VOL
+	beat cs S3 r S4
+
+	duty HI_VOL
+	beat od b E1
+	duty LO_VOL
+	beat b S3 r S4
+
+	duty HI_VOL
+	beat ou cs E1
+	duty LO_VOL
+	beat cs S3 r S4
+
+	duty HI_VOL
+	beat ds E1
+	duty LO_VOL
+	beat ds S3 r S4	
+; Measure 5
+	duty HI_VOL
+	beat e E1
+	duty LO_VOL
+	beat e S3 r S4	
+
+	duty HI_VOL
+	beat ds E1
+	duty LO_VOL
+	beat ds S3 r S4	
+.rept 2
+	duty HI_VOL
+	beat e E1
+	duty LO_VOL
+	beat e S3 r S4
+.endr
+	duty HI_VOL
+; Measure 6 (repeat of M4)
+	octave 3
+	beat cs E1
+	duty LO_VOL
+	beat cs S3 r S4
+
+	duty HI_VOL
+	beat od b E1
+	duty LO_VOL
+	beat b S3 r S4
+
+	duty HI_VOL
+	beat ou cs E1
+	duty LO_VOL
+	beat cs S3 r S4
+
+	duty HI_VOL
+	beat ds E1
+	duty LO_VOL
+	beat ds S3 r S4	
+; Measure 7
+	duty HI_VOL
+	beat e E1
+	duty LO_VOL
+	beat e S3 r S4
+
+	duty HI_VOL
+	beat fs E1
+	duty LO_VOL
+	beat fs S3 r S4	
+
+	duty HI_VOL
+	beat a E1
+	duty LO_VOL
+	beat a S3 r S4
+
+	duty HI_VOL
+	beat gs E1
+	duty LO_VOL
+	beat gs S3 r S4

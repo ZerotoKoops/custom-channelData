@@ -2,6 +2,7 @@ kassThemeStart:
 ; BPM 150, Quarter = 12*2, 3/4 time
 kassThemeChannel1:
 	.redefine BEAT 2
+.redefine NO_FIRST_VOL 0
 	duty $02
 kassThemeChannel1Measure1:
 	octave 4

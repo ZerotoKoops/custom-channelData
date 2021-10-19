@@ -1,0 +1,29 @@
+	octave 3
+	duty HI_VOL
+	beat c 7
+	duty LO_VOL
+	beat c 6
+
+.redefine HI_VOL $15
+.redefine LO_VOL $14
+.rept 3
+	duty HI_VOL
+	beat c 7
+	duty LO_VOL
+	beat c 6
+.endr
+	octaved
+.redefine HI_VOL $0e
+.redefine LO_VOL $0f
+	duty HI_VOL
+	beat as 7
+	duty LO_VOL
+	beat as 6
+.redefine HI_VOL $15
+.redefine LO_VOL $14
+.rept 3
+	duty HI_VOL
+	beat as 7
+	duty LO_VOL
+	beat as 6
+.endr

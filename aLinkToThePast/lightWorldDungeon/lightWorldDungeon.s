@@ -3,6 +3,7 @@ lightWorldDungeonStart:
 lightWorldDungeonChannel1:
 	resetCoda
 	.redefine BEAT 6
+.redefine NO_FIRST_VOL 0
 lightWorldDungeonChannel1Measure1:
 	incCoda	
 ; Measure 1

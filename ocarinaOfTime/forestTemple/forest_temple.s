@@ -5,6 +5,7 @@ forestTempleStart:
 forestTempleChannel1:
 	octave 4
 	.redefine BEAT 2
+.redefine NO_FIRST_VOL 0
 ; Measures 1-2
 	vol $0
 	wait1 255

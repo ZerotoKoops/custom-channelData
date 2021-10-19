@@ -2,6 +2,7 @@ hyruleCastleStart:
 ; BPM = 100 (B=36)
 hyruleCastleChannel1:
 	.redefine BEAT 1
+.redefine NO_FIRST_VOL 0
 	resetCoda
 
 ; Measures 1-2 (Eighth Note Pickup and Full Measure)

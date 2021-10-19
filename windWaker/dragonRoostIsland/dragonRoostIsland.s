@@ -7,6 +7,7 @@ dragonRoostIslandChannel1:
 .redefine HI_VOL $6
 .redefine LO_VOL $3
 .redefine LO_VOL_RATIO 1/2
+.redefine NO_FIRST_VOL 0
 
 ; Measure 1-2
 	octave 5

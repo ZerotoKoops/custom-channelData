@@ -7,6 +7,7 @@ linebeckChannel1:
 .redefine HI_VOL $6
 .redefine LO_VOL $3
 .redefine LO_VOL_RATIO 1/2
+.redefine NO_FIRST_VOL 0
 
 ; Measure 1 (eighth note pickup)
 	octave 4
@@ -145,6 +146,7 @@ linebeckChannel0:
 .redefine HI_VOL $4
 .redefine LO_VOL $2
 .redefine LO_VOL_RATIO 1/2
+.redefine NO_FIRST_VOL 0
 
 ; Measure 1 (eighth note pickup)
 	octave 3
@@ -247,6 +249,7 @@ linebeckChannel4:
 .redefine HI_VOL $0e
 .redefine LO_VOL $0f
 .redefine LO_VOL_RATIO 1/2
+.redefine NO_FIRST_VOL 0
 .redefine NOTE_END_WAIT 0
 
 ; Measure 1 (eighth note pickup)

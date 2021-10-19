@@ -1,0 +1,52 @@
+.macro redefLen
+
+	.redefine Q2	Q1
+	.redefine Q3	Q1
+	.redefine Q4	Q1
+
+	.redefine E3	E1
+	.redefine E4	E2
+	.redefine E5	E1
+	.redefine E6	E2
+	.redefine E7	E1
+	.redefine E8	E2
+
+	.redefine S05	S01
+	.redefine S06	S02
+	.redefine S07	S03
+	.redefine S08	S04
+	.redefine S09	S01
+	.redefine S10	S02
+	.redefine S11	S03
+	.redefine S12	S04
+	.redefine S13	S01
+	.redefine S14	S02
+	.redefine S15	S03
+	.redefine S16	S04
+
+	.redefine T09	T01
+	.redefine T10 	T02
+	.redefine T11	T03
+	.redefine T12	T04
+	.redefine T13	T05
+	.redefine T14	T06
+	.redefine T15	T07
+	.redefine T16	T08
+	.redefine T17	T01
+	.redefine T18	T02
+	.redefine T19	T03
+	.redefine T20	T04
+	.redefine T21	T05
+	.redefine T22	T06
+	.redefine T23	T07
+	.redefine T24	T08
+	.redefine T25	T01
+	.redefine T26	T02
+	.redefine T27	T03
+	.redefine T28	T04
+	.redefine T29	T05
+	.redefine T30	T06
+	.redefine T31	T07
+	.redefine T32	T08
+
+.endm

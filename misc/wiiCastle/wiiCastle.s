@@ -3,6 +3,7 @@ wiiCastleStart:
 wiiCastleChannel1:
 .redefine BEAT 7        ;16th
 .redefine CHANNEL 0
+.redefine NO_FIRST_VOL 0
 ; Measure 1
 ; 2/4
     octave 2

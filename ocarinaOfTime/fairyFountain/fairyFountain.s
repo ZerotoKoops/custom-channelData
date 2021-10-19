@@ -3,6 +3,7 @@ fairyFountainStart:
 fairyFountainChannel1:
 .redefine BEAT 1
 .redefine CHANNEL 1
+.redefine NO_FIRST_VOL 0
 ; Measure 1
 ; B = 34
 	vol $0

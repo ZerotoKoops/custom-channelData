@@ -3,6 +3,7 @@ overthereStairStart:
 overthereStairChannel1:
 .redefine CHANNEL 1
 .redefine BEAT 10     ;eigth
+.redefine NO_FIRST_VOL 0
 
 .redefine HI_VOL $6
 .redefine LO_VOL $3

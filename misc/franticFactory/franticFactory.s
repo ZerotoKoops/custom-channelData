@@ -5,6 +5,7 @@ franticFactoryChannel1Measure1:
     resetCoda
 .redefine BEAT 16       ;eighth
 .redefine CHANNEL 1
+.redefine NO_FIRST_VOL 0
 ; Measure 1
     octave 6
     vol $3

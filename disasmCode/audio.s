@@ -799,7 +799,7 @@ _channelCmdf0:
 	call _getNextChannelByte
 	push af
 	and $3f
-	jr z,_inputOnlyBits6&7
+	jr z,_inputOnlyBits6_7
 
 	pop af
 	ld hl,wChannelDutyCycles
@@ -811,7 +811,7 @@ _channelCmdf0:
 	ld (hl),a		;puts $41 into wc039 (with same condition as before)
 	jp _doNextChannelCommand
 
-_inputOnlyBits6&7:
+_inputOnlyBits6_7:
 	pop af
 	and $c0			;put only bits 6 and 7 of input byte into wChannelDutyCycles
 	ld hl,wChannelDutyCycles

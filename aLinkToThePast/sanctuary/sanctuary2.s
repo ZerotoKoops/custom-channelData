@@ -4,6 +4,7 @@ sanctuaryChannel1:
 .redefine CHANNEL 1
 .redefine HI_VOL $6
 .redefine LO_VOL $3
+.redefine NO_FIRST_VOL 0
 .redefine BEAT 28    ;eigth
 
 ; Measure 1-2

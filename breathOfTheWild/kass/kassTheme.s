@@ -3,6 +3,7 @@ kassThemeStart:
 kassThemeChannel1:
 	setCoda $00
 	.redefine BEAT 2
+.redefine NO_FIRST_VOL 0
 	duty $02
 kassThemeChannel1Measure1:
 	octave 4

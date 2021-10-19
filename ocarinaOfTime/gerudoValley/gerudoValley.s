@@ -2,6 +2,7 @@ gerudoValleyStart
 ; BPM = 129 B = 28
 gerudoValleyChannel1:
 	.redefine BEAT 7		;Sixteenth
+.redefine NO_FIRST_VOL 0
 	resetCoda
 
 ; Measures 1-3

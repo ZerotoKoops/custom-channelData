@@ -1,6 +1,7 @@
 blackMistStart:
 ;BPM == 150, Quarter == 24
 blackMistChannel1:
+.redefine NO_FIRST_VOL 0
 	setCoda $00
 	.redefine BEAT 2
 blackMistChannel1Measure1:

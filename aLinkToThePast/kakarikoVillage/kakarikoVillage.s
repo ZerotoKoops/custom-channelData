@@ -3,6 +3,7 @@ kakarikoVillageStart:
 kakarikoVillageChannel1:
 	resetCoda
 	.redefine BEAT 1
+.redefine NO_FIRST_VOL 0
 
 ; Measure 1
 	vol $0
