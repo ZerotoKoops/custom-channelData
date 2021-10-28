@@ -34,7 +34,11 @@ The author has not enough experience to write for channels 2, 3, 5 and 7.
 
 Rests
 ---------------------------------
-1. Always put rests right after notes. When putting multiple rests, the limit being 255, combine them as much as possible.
+1. Always put rests right after notes. When putting multiple rests, the limit being 256, combine them as much as possible.
+	1. 256 is possible by placing a 
+		>beat r 0
+	2. or a 
+		>wait1 $00
 2. If there are multiple rests (wait macros), then turn the volume to $0. If this is not done, the audio blips at the interval.
 3. Make sure every channel data label ends with a "cmdff" so the game knows to end reading there.
 
@@ -299,6 +303,55 @@ Coda Macros
         >
 		>>	etc.
         >
+
+Tempo Macro
+----------------
+1. This macro is a recent addition in which all the user has to input is the tempo of his piece and never have to worry about the actual lengths of the notes (with a couple exceptions).
+2. The macro is input at the beginning of the piece, before the first note.
+	1. Not every tempo is possible. The macro will round your inputs to a tempo that produces whole number note lengths. These are in the "Music Values" Excel sheet, if you would like to look. 
+	2. The rounding is based off of the assumed ratio that a quarter note length (named BEAT or Q) of 24 equals a tempo of 150 BPM.
+	3. Because not all Q values are divisible by powers of 2, the macro will create eighth, sixteenth, and thirty-second note length values that not all will be the same.
+	4. Q can be as low as 1, representing a tempo of 3,600 BPM. Q should have an upper limit of 64 ($40), representing a tempo of 56.25 BPM, so that W can fit within a single byte. If you need to go higher in Q than this, refrain from using this macro.
+	5. Example:
+		>tempo [Tempo value]
+ 
+Variable Note Lengths
+----------------------------
+1. Always use the Tempo macro when using these variables. It should be placed at the beginning of a piece, or at the beginning of the channel used.
+2. See 2iii of Tempo Macro for why note lengths may be different.
+3. Note lengths are not divided systematically; e.g., S3 is always greater than S4. They are rather divided according to an algorithm that allows for the value to be as close to the appropriate ratio. This allows for a better listening experience.
+4. Here is a list of how each variable is calculated.
+	1. W (whole note) == Q times 4
+	2. HF (half note) == Q times 2
+	3. Q (quarter note) == 150 times 24 divided by the provided tempo, rounded to the nearest whole number
+	4. R1 + R2 + R3 == Q
+		1. Y1 + Y2 == R1
+		2. Y3 + Y4 == R2
+		3. Y5 + Y6 == R3
+	5. E1 + E2 == Q
+		1. S1 + S2 == E1
+			1. T1 + T2 == S1
+			2. T3 + T4 == S2
+		2. S3 + S4 == E2
+			1. T5 + T6 == S3
+			2. T7 + T8 == S4
+5. Within the code, arithmetic can be used on the variables (see 6), but you must be weary of what the value of the variable is.
+	1. You cannot exceed $ff. $00 is interpretted as $100, but you need to modulate the arithmetic (# $100) to not get an error in the terminal.
+	2. Negative values are interpretted as unsigned bytes.
+6. Example:
+	>beat fs S1 a S2 ou cs E2
+	>beat od gs S1 a S2 gs S3 e S4
+	>beat fs E1+S3 gs Q
+
+NoteLen Macro
+--------------------
+1. The Tempo macro is required to have already been input for this to work! Or Q will have to be set to the desired value.
+2. This will make wonky note lengths. Inputs can be from 1-12 inclusively. When finished it'll divide out like this:
+	>X1 + X2 + X3 ... Xn == Q 			
+3. Example:
+	>noteLen 5
+		>X1 + X2 + X3 + X4 + X5 == Q
+	>beat r E1 e X1 f X2 e X3 ds X4 e X5 ou c E2
 
 Supplemental Music Notation Software
 --------------------------------------
