@@ -1,6 +1,33 @@
 Readme
 =======
 
+How to Use this Repository
+=========================
+1. Within each of these folders, there are several files. Typically, they will have 2-3, if not 4.
+    1. S file [.s]
+    2. MuseScore file [.mscz]
+    3. Music file [.mp3]
+    4. Music Sheet used for transposition [.pdf]
+2. To insert the music into your romhack
+	1. Replace the three files in disasmCode in this repository. (This only needs to be done once, unless there is a new commit to these files.)
+        1. audio.s goes in oracles-disasm/code/
+        2. musicMacros.s and wram.s go in oracles-disasm/include/
+            1. If you are not able to completely replace wram.s, you may search for "wChannelCodas" within the file and replace the necessary data into your own wram.s.
+    2. Locate your hack's channel data in audio/[game]/channelData.s
+    3. Search for GAP within this file and delete the several hundreds of lines of code for "cmdff". These are placeholder bytes that can be deleted safely. This will help save space for when you import the channel data.
+    4. Take the S file from whatever song you wish to import. Find the appropriate place you wish to put it. Typically, you will have to replace an original song in order for it to fit.
+        1. If you used replacement:
+            1. Go to soundChannelPointers.s and replace whatever sound name you used to using the title of the S file concatenated with the proper channel number.
+                > mapleMinigame.s --> mapleMinigameStart, mapleMinigameChannel1, etc.
+            2. Go to soundPointers.s and do the same, but this time there should only be one label to replace.
+            3. You should also go to constants/music.s and replace the appropriate label for your sound if you're building a game from scratch. This is not recommended unless you are prepared for error messages where the original label was used in the disassembly.
+        2. If you did not use replacement:
+            1. Do the same as a., but add a new (set of) lines to each file as to complete a new set of labels.
+    5. At this point, you should be able to Make the game. If there are any errors, make sure you did everything exactly as the instructions. If you're still getting errors, contact me at the [Oracles romhacking discord](https://discord.gg/wCpPPNZ "Oracles romhacking discord").
+3. If you want to check up on the progress of music from the "unfinished" folder, you can check out my [Trello](https://trello.com/b/IQU3VIfk/custom-oracles-music "Trello"). Please contact me on Discord if you'd like to suggest a song or suggest which song should have priority.
+
+Rules
+==================================
 This is a list of rules that should be considered when writing music code.
 All of these notes are when coding for channels 1, 0, 4 and 6.
 The author has not enough experience to write for channels 2, 3, 5 and 7.
@@ -279,29 +306,7 @@ Supplemental Music Notation Software
 	better spatial reasoning in the music.
 2. Try to remember what each note length translates to in the music! This is imperative if you decide to use notation software.
 
-How to Use this Repository
-=========================
-1. Within each of these folders, there are several files. Typically, they will have 2-3, if not 4.
-    1. S file [.s]
-    2. MuseScore file [.mscz]
-    3. Music file [.mp3]
-    4. Music Sheet used for transposition [.pdf]
-2. To insert the music into your romhack
-	1. Replace the three files in disasmCode in this repository. (This only needs to be done once, unless there is a new commit to these files.)
-        1. audio.s goes in oracles-disasm/code/
-        2. musicMacros.s and wram.s go in oracles-disasm/include/
-            1. If you are not able to completely replace wram.s, you may search for "wChannelCodas" within the file and replace the necessary data into your own wram.s.
-    2. Locate your hack's channel data in audio/[game]/channelData.s
-    3. Search for GAP within this file and delete the several hundreds of lines of code for "cmdff". These are placeholder bytes that can be deleted safely. This will help save space for when you import the channel data.
-    4. Take the S file from whatever song you wish to import. Find the appropriate place you wish to put it. Typically, you will have to replace an original song in order for it to fit.
-        1. If you used replacement:
-            1. Go to soundChannelPointers.s and replace whatever sound name you used to using the title of the S file concatenated with the proper channel number.
-                > mapleMinigame.s --> mapleMinigameStart, mapleMinigameChannel1, etc.
-            2. Go to soundPointers.s and do the same, but this time there should only be one label to replace.
-            3. You should also go to constants/music.s and replace the appropriate label for your sound if you're building a game from scratch. This is not recommended unless you are prepared for error messages where the original label was used in the disassembly.
-        2. If you did not use replacement:
-            1. Do the same as a., but add a new (set of) lines to each file as to complete a new set of labels.
-    5. At this point, you should be able to Make the game. If there are any errors, make sure you did everything exactly as the instructions. If you're still getting errors, contact me at the [Oracles romhacking discord](https://discord.gg/wCpPPNZ "Oracles romhacking discord").
+
 
 
 
