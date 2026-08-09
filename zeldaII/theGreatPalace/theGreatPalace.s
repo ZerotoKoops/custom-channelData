@@ -1,187 +1,198 @@
-theGreatPalaceStart:
-; BPM = 150 B = 24
-theGreatPalaceChannel1:
-    .redefine BEAT 12
-    .redefine CHANNEL 1
-    .redefine HI_VOL $6
-    .redefine LO_VOL $3
-	.redefine NO_FIRST_VOL 0
-    .redefine LO_VOL_RATIO 0.25
-    octave 4
+musTheGreatPalaceStart:
+	tempo 156
+
+.macro m_musTheGreatPalaceChannel1Measure1
+	beat \1 Q \2 E1
+	beat \1 E2+E1 \3 E2+E1
+	beat \2 E2
+.endm
+
+musTheGreatPalaceChannel1:
+	.redefine HI_VOL $6
+	.redefine LO_VOL $3
+
 ; Measure 1
-    duty $02
-	volbeat a 2 g 1 a 2 e 2 g 1
+	duty $02
+	env $0 $05
+	vibrato $02
+	vol HI_VOL
+	m_musTheGreatPalaceChannel1Measure1 a4 g4 e4
 ; Measure 2
-	volbeat f 1 g 1 a 1 b 2 a 1 g 2
-	volbeat r 2
+	octave 4
+	beat f E1 g E2 a E1 b E2+E1
+	beat a E2 g Q r Q
 
-theGreatPalaceChannel1Measure3bReset:
-    resetCoda
-
-theGreatPalaceChannel1Measure3b:
-	incCoda
+musTheGreatPalaceChannel1Loop:
+	env $0 $05
+.rept 2
 ; Measure 3b,7b
 	octave 4
-	vibrato $02
-	volbeat a 1 a 1
-	volbeat b 1 ou c 1 d 1 e 1
+	beat a E1 a E2
+	beat b E1 ou c E2 d E1 e E2
 ; Measure 4,8
-	volbeat b 3 a 3 e 2
+	beat b Q+E1 a E2+Q e Q
 ; Measure 5,9
-	volbeat g 3 fs 3 d 2
+	beat g Q+E1 fs E2+Q d Q
 ; Measure 6,10
-	volbeat f 3 e 3 c 3 r 1
+	beat f Q+E1 e E2+Q c Q+E1 r E2
+.endr
 
-	gotoCond 1 theGreatPalaceChannel1Measure3b
-
-theGreatPalaceChannel1Measure11b:
-	incCoda
+; Measure 11b-14
+.macro m_musTheGreatPalaceChannel1Measure11b
 ; Measure 11b
 	octave 4
-	volbeat gs 2 ou c 1 d 2 f 4
-; Measure 12
-	volbeat ds 2 f 3
+	vol HI_VOL
+	beat gs Q ou c E1 d E2+E1
+; Measure 11d	
+	beat f E2+Q+E1 ds E2+E1 f E2+Q
 ; Measure 13
-	volbeat g 1 f 1 ds 1 f 2 ds 1 d 2
+	beat g E1 f E2 ds E1 f E2+E1 ds E2 d Q
 ; Measure 14
-	volbeat ds 1 d 1 c 1 d 2 c 1 
-
-	gotoCond 4 theGreatPalaceChannel1Measure18d
-
-	volbeat od as 3 r 1
-
-	goto theGreatPalaceChannel1Measure11b
-
-theGreatPalaceChannel1Measure18d:
-; Measure 18d
-	octave 4
-	volbeat as 2
+	beat ds E1 d E2 c E1 d E2+E1 c E2
+	octaved
+	beat as Q
+.endm
+	m_musTheGreatPalaceChannel1Measure11b
+; Measure 15-18
+	rest Q
+	m_musTheGreatPalaceChannel1Measure11b
 ; Measure 19
-	octaveu
-	volbeat c 1 od a 2 ou e 5
+	octave 5
+	beat c E1 od a E2+E1 ou e E2+HF
 ; Measure 20
-	volbeat c 1 od a 2 ou g 2 fs 3
+	beat c E1 od a E2+E1 ou g E2+E1 fs E2+Q
 ; Measure 21
-	volbeat c 1 od a 2 ou e 5
+	beat c E1 od a E2+E1 ou e E2+HF
 ; Measure 22
 	octaved
-	volbeat e 1 f 2 gs 2 b 3 r 2
+	env $0 $07
+	beat e E1 f E2+E1 gs E2+E1 b E2+Q
+; Measure 3a
+	beat r Q
 
-	goto theGreatPalaceChannel1Measure3bReset
-    cmdff
+	goto musTheGreatPalaceChannel1Loop
+	cmdff
 
-theGreatPalaceChannel0:
-    .redefine BEAT 12
-    .redefine CHANNEL 0
-    .redefine HI_VOL $4
-    .redefine LO_VOL $2
-    .redefine LO_VOL_RATIO 0.25
+
+.macro m_musTheGreatPalaceChannel0Measure3
+; Measure 3
+	octave 3
+	beat a E1 ou c E2 e E1 a E2
+	octaved
+	beat a E1 ou c E2 e E1 gs E2
+.endm
+
+.macro m_musTheGreatPalaceChannel0Measure4
+; Measure 4
+	octaved
+	beat a E1 ou c E2 e E1 g E2	
+	octaved
+	beat a E1 ou c E2 e E1 fs E2
+.endm
+
+musTheGreatPalaceChannel0:
+	.redefine HI_VOL $4
+	.redefine LO_VOL $2
+
 ; Measure 1
-	octave 4
 	duty $02
-	volbeat e 2 d 1 e 2 od b 2 ou d 1
-; Measure 2
-	volbeat r 1 c 1 c 1
-.redefine BEAT 6
-	volbeat d 3 r 1
-.redefine BEAT 12
-	volbeat d 1
-	vol $6
-	beat d 2
-
-theGreatPalaceChannel0Measure3Reset:
-	resetCoda
 	env $0 $06
-theGreatPalaceChannel0Measure3:
-	incCoda
-; Measure 3
-	octave 3
-	volbeat a 1 ou c 1 e 1 a 1
-	octaved
-	volbeat a 1 ou c 1 e 1 gs 1
-
-	gotoCond 22 theGreatPalaceChannel0Measure22
-
-; Measure 4
-	octaved
-	volbeat a 1 ou c 1 e 1 g 1	
-	octaved
-	volbeat a 1 ou c 1 e 1 fs 1
-
-	gotoCond 4 theGreatPalaceChannel0Measure11
-	goto theGreatPalaceChannel0Measure3
-
-theGreatPalaceChannel0Measure11:
-	incCoda
-; Measure 11
-	octave 3
-	volbeat gs 1 ou c 1 d 1 f 1
-
-	gotoCond 20 theGreatPalaceChannel0Measure3
-	goto theGreatPalaceChannel0Measure11
-
-theGreatPalaceChannel0Measure22:
-; Measure 22
-	octave 3
-	volbeat b 1 ou c 2 d 2 e 3
-
-	goto theGreatPalaceChannel0Measure3Reset
-    cmdff
-
-
-theGreatPalaceChannel4:
-    .redefine BEAT 12
-    .redefine CHANNEL 4
-    .redefine HI_VOL $0e
-    .redefine LO_VOL $0f
-    .redefine LO_VOL_RATIO 0.5
-	octave 2
-; Measure 1
-    volbeat a 1 r 1 g 1 a 1
-    volbeat r 1 e 1 r 1 g 1
+	vibrato $01
+	vol HI_VOL
+	m_musTheGreatPalaceChannel1Measure1 e4 d4 b3
 ; Measure 2
-    volbeat f 1 f 1 f 1 g 1
-    volbeat r 1 g 1 g 1 r 1
+	rest E1
+	vol HI_VOL
+	octave 4
+	beat c E2 c E1 d E2+S1 r S2
+	beat d E2 d Q
 
-theGreatPalaceChannel4Measure3Reset:
-	resetCoda
-theGreatPalaceChannel4Measure3:
-	incCoda
-; Measure 3
-	volbeat a 1 r 1 e 1 a 1 r 3 e 1
-
-	gotoCond 8 theGreatPalaceChannel4Measure11
-	gotoCond 19 theGreatPalaceChannel4Measure22
-	goto theGreatPalaceChannel4Measure3
-
-theGreatPalaceChannel4Measure11:
-	incCoda
-; Measure 4
-	volbeat f 1 r 1 c 1 f 1 r 3 c 1
-
-	gotoCond 16 theGreatPalaceChannel4Measure3
-	goto theGreatPalaceChannel4Measure11
-
-theGreatPalaceChannel4Measure22
+musTheGreatPalaceChannel0Loop:
+; Measure 3-10
+	env $0 $06
+.rept 4
+	m_musTheGreatPalaceChannel0Measure3
+	m_musTheGreatPalaceChannel0Measure4
+.endr
+; Measure 11-18
+.rept 16
+	octave 3
+	beat gs E1 ou c E2 d E1 f E2
+.endr
+; Measure 19
+	m_musTheGreatPalaceChannel0Measure3
+; Measure 20
+	m_musTheGreatPalaceChannel0Measure4
+; Measure 21
+	m_musTheGreatPalaceChannel0Measure3
 ; Measure 22
-	volbeat e 1 f 1 r 1 gs 1 r 1 b 1 r 2
+	env $0 $07
+	octave 3
+	beat b E1 ou c E2+E1 d E2+E1 e E2+Q
 
-	goto theGreatPalaceChannel4Measure3Reset
+	goto musTheGreatPalaceChannel0Loop
+	cmdff
+	
 
-theGreatPalaceChannel6:
-    .redefine BEAT 12
-; Measure 1-2
+.macro m_musTheGreatPalaceChannel4Measure3
+	beat \1 E1 r E2
+	beat \2 E1 \1 E2
+	beat r Q+E1 \2 E2
+.endm
+
+musTheGreatPalaceChannel4:
+	.redefine HI_VOL $28
+	.redefine LO_VOL $08
+
+; Measure 1
+	octave 2
+	duty HI_VOL
+	beat a E1 r E2 g E1 a E2
+	beat r E1 e E2 r E1 g E2
+; Measure 2
+	beat f E1 f E2 f E1 g E2
+	beat r E1 g E2 g E1 r E2
+
+musTheGreatPalaceChannel4Loop:
+; Measure 3-10
+.rept 8
+	m_musTheGreatPalaceChannel4Measure3 a2 e2
+.endr
+; Measure 11-18
+.rept 8
+	m_musTheGreatPalaceChannel4Measure3 f2 c2
+.endr
+; Measure 19-21
+.rept 3
+	m_musTheGreatPalaceChannel4Measure3 a2 e2
+.endr
+; Measure 22
+	octave 2
+	beat e E1 f E2 r E1 gs E2
+	beat r E1 b E2 r Q
+
+	goto musTheGreatPalaceChannel4Loop
+	cmdff
+
+
+
+musTheGreatPalaceChannel6:
+	.redefine HI_VOL $4
+	.redefine LO_VOL $3
+	.redefine HIT $2a
+
+; Measure 1
 	vol $0
-	beat r 8
-theGreatPalaceChannel6Measure3Reset:
-	beat r 8
-	resetCoda
-	vol $5
-theGreatPalaceChannel6Measure3:
-	incCoda
+	rest W
+musTheGreatPalaceChannel6Loop:
+; Measure 2,22
+	rest W
 ; Measure 3-21
-	beat $2a 3 $2a 3 $2a 2
+	vol HI_VOL
+.rept 19
+	beat HIT Q+E1 HIT E2+Q HIT Q
+.endr
+	vol $0
 
-	gotoCond 19 theGreatPalaceChannel6Measure3Reset
-	goto theGreatPalaceChannel6Measure3
-    cmdff
+	goto musTheGreatPalaceChannel6Loop
+	cmdff
