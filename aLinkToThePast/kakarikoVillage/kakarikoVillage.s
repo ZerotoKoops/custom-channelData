@@ -1,291 +1,304 @@
-kakarikoVillageStart:
-; BPM 100, Quarter = 36, 3/4 time
-kakarikoVillageChannel1:
-	resetCoda
-	.redefine BEAT 1
-.redefine NO_FIRST_VOL 0
+musKakarikoVillageStart:
+	tempo 100
 
+
+.macro m_musKakarikoVillageChannel1HiVol
+.ifndef VOLUME_HIGH
+	vol HI_VOL
+	env $1 $00
+	vibrato $a2	
+.endif
+.redefine VOLUME_HIGH 1
+.endm
+
+.macro m_musKakarikoVillageChannel1LoVol
+.ifdef VOLUME_HIGH
+	vol LO_VOL
+	env $0 $00
+	vibrato $02	
+.undefine VOLUME_HIGH
+.endif
+.endm
+
+.macro m_musKakarikoVillageChannel1Quarter
+	m_musKakarikoVillageChannel1HiVol
+
+	beat \1 Q
+.endm
+
+.macro m_musKakarikoVillageChannel1Half
+	m_musKakarikoVillageChannel1HiVol
+
+	beat \1 Q+E1
+	
+	m_musKakarikoVillageChannel1LoVol
+	beat \1 E2	
+.endm
+
+.macro m_musKakarikoVillageChannel1DottedHalf
+	m_musKakarikoVillageChannel1HiVol
+
+	beat \1 Q+E1+S3
+	
+	m_musKakarikoVillageChannel1LoVol
+	beat \1 S4+E1
+	vol LO_VOL-1
+	vibrato $03
+	beat \1 E2	
+.endm
+
+.macro m_musKakarikoVillageChannel1DottedHalfAndHalf
+	m_musKakarikoVillageChannel1HiVol
+
+	beat \1 HF+E1
+	
+	m_musKakarikoVillageChannel1LoVol
+	beat \1 E2+Q
+	vol LO_VOL-1
+	beat \1 Q	
+.endm
+
+musKakarikoVillageChannel1:
+.redefine HI_VOL $6
+.redefine LO_VOL $4
 ; Measure 1
 	vol $0
-	beat r 108
+	beat gs3 HF+Q
 
-kakarikoVillageChannel1Measure2:
-; Measures 2-3
-	vol $0
-	beat r 255 r 33
-; Measure 4
-kakarikoVillageChannel1Measure4c:
-	vol $6
-	duty $02
+musKakarikoVillageChannel1Measure2Loop:
+;Measure 2-4
+	beat gs3 HF+Q gs3 HF+Q+HF
+	
+	duty $03
 	octave 4
-	vibrato $e1
 .rept 2
-	beat f 36
+.rept 2
+; Measure 4c,8c
+	m_musKakarikoVillageChannel1Quarter f4
 ; Measure 5,9
-	beat as 72 f 36
-; Measure 6,10
-	beat ou d 72 od as 36
-; Measures 7-8,11-12
-	beat ou f 177 r 3 od
+	m_musKakarikoVillageChannel1Half as4
+; Measure 5c,9c
+	m_musKakarikoVillageChannel1Quarter f4
+; Measure 6,10-
+	m_musKakarikoVillageChannel1Half d5
+; Measure 6c,10c
+	m_musKakarikoVillageChannel1Quarter as4
+; Measure 7-8,11-12
+	m_musKakarikoVillageChannel1DottedHalfAndHalf f5
 .endr
-	octave 5
-	beat f 36
+
+; Measure 12c
+	m_musKakarikoVillageChannel1Quarter f5 
 ; Measure 13
-	beat g 108
+	m_musKakarikoVillageChannel1DottedHalf g5
 ; Measure 14
-	octave 4
-	beat a 72 ou g 36
+	m_musKakarikoVillageChannel1Half a4
+	m_musKakarikoVillageChannel1Quarter g5
 ; Measure 15
-	beat f 108
-; Measures 16-17
-	.redefine NOTE_END_WAIT 3
+	m_musKakarikoVillageChannel1DottedHalf f5
 .rept 2
-	beat d 108
+; Measure 16,17
+	m_musKakarikoVillageChannel1DottedHalf d5
 .endr
 ; Measure 18
-	.redefine NOTE_END_WAIT 0
-	beat d 72 c 36
-; Measures 19-20
-	beat od as 177 r 3
+	m_musKakarikoVillageChannel1Half d5
+	m_musKakarikoVillageChannel1Quarter c5
+; Measure 19-20
+	m_musKakarikoVillageChannel1DottedHalfAndHalf as4
+.endr
 
-	gotoCond $01 kakarikoVillageChannel1Measure21c
-	incCoda
-	goto kakarikoVillageChannel1Measure4c
-
-kakarikoVillageChannel1Measure21c:
-; Measure 21
-	octave 4
-	beat as 33 r 3
+; Measure 21c
+	m_musKakarikoVillageChannel1Quarter as4
 ; Measure 22
-	beat as 108
+	m_musKakarikoVillageChannel1DottedHalf as4
 ; Measure 23
-	beat a 72 ou c 36
+	m_musKakarikoVillageChannel1Half a4
+	m_musKakarikoVillageChannel1Quarter c5
 ; Measure 24
-	beat od as 108
+	m_musKakarikoVillageChannel1DottedHalf as4
 ; Measure 25
-	beat f 108
+	m_musKakarikoVillageChannel1DottedHalf f4
 ; Measure 26
-	beat ds 72 d 36
+	m_musKakarikoVillageChannel1Half ds4
+	m_musKakarikoVillageChannel1Quarter d4
 ; Measure 27
-	beat ds 72 f 36
-; Measures 28-29
-	beat d 180 as 33 r 3
+	m_musKakarikoVillageChannel1Half ds4
+	m_musKakarikoVillageChannel1Quarter f4
+; Measure 28-29
+	m_musKakarikoVillageChannel1DottedHalfAndHalf d4
+; Masure 29c
+	m_musKakarikoVillageChannel1Quarter as4
 ; Measure 30
-	beat as 108
+	m_musKakarikoVillageChannel1DottedHalf as4
 ; Measure 31
-	beat a 72 ou c 36
+	m_musKakarikoVillageChannel1Half a4
+	m_musKakarikoVillageChannel1Quarter c5
 ; Measure 32
-	beat od as 72 f 36
+	m_musKakarikoVillageChannel1Half as4	
+	m_musKakarikoVillageChannel1Quarter f4
 ; Measure 33
-	octave 5
-	beat f 108
+	m_musKakarikoVillageChannel1DottedHalf f5
 ; Measure 34
-	beat ds 108
+	m_musKakarikoVillageChannel1DottedHalf ds5
 ; Measure 35
-	beat d 72 c 36
-; Measures 36-37
-	beat od as 216
+	m_musKakarikoVillageChannel1Half d5
+	m_musKakarikoVillageChannel1Quarter c5
+; Measure 36-37
+	m_musKakarikoVillageChannel1DottedHalfAndHalf as4
+	octave 4
+	beat as4 Q
 
-	resetCoda
-	goto kakarikoVillageChannel1Measure2
+	vol $0
+	goto musKakarikoVillageChannel1Measure2Loop
 	cmdff
 
-kakarikoVillageChannel0:
-kakarikoVillageChannel0Measure1:
-	resetCoda
-	.redefine BEAT 1
+.macro m_musKakarikoVillageChannel0Measure1
+	beat \1 E1 \2 E2 \3 E1
+	beat \4 E2 \3 E1 \2 E2
+.endm
+.macro m_musKakarikoVillageChannel0Measure5
+	beat r E1 \1 E2 \2 E1
+	beat \3 E2 \2 E1 \1 E2
+.endm
+.macro m_musKakarikoVillageChannel0Measure13
+	beat r E1 \1 E2 \2 E1
+	beat \3 E2 \2 E1 \3 E2
+.endm
 
-	octave 2
+musKakarikoVillageChannel0:
+.redefine HI_VOL $5
+.redefine LO_VOL $3
+
+musKakarikoVillageChannel0Measure1Loop:
+; Measure 1
+	env $0 $03
 	duty $01
-	env $0 $04
-	vol $6
-; Measure 1,37
-	beat as 18 ou f 18 as 18
-	beat ou d 18 od as 18 f 18
-	
-	vol $5
+	vibrato $01
+	vol HI_VOL
 	octave 2
+	m_musKakarikoVillageChannel0Measure1 as2 f3 as3 d4
 ; Measure 2
-	beat g 18 ou d 18 g 18
-	beat as 18 g 18 d 18
+	m_musKakarikoVillageChannel0Measure1 g2 d3 g3 as3
 ; Measure 3
-	beat c 18 g 18 as 18
-	beat ou f 18 od as 18 g 18
+	m_musKakarikoVillageChannel0Measure1 c3 g3 as3 f4
 ; Measure 4
-	beat r 18 f 18 ou c 18
-	beat ds 18 c 18 od a 18
-
-kakarikoVillageChannel0Measure5:
 	octave 3
-; Measure 5
-	beat r 18 f 18 as 18
-	beat ou d 18 od as 18 f 18
-; Measure 6
-	beat r 18 d 18 g 18
-	beat as 18 g 18 d 18
-; Measure 7
-	beat r 18 g 18 as 18
-	beat ou f 18 od as 18 g 18
-; Measure 8
-	beat r 18 f 18 ou c 18
-	beat ds 18 c 18 od a 18
-; Measure 9
-	beat r 18 f 18 as 18
-	beat ou d 18 od as 18 f 18
-; Measure 10
-	beat r 18 d 18 g 18
-	beat as 18 g 18 d 18
-; Measure 11
-	beat r 18 g 18 as 18
-	beat ou f 18 od as 18 g 18
-; Measure 12
-	beat r 18 f 18 ou c 18
-	beat ds 18 c 18 od a 18
+	beat r E1 f E2 ou c E1
+	beat ds E2 c E1 od a E2
+
+.rept 2
+.rept 2
+; Measure 5,9
+	m_musKakarikoVillageChannel0Measure5 f3 as3 d4
+; Measure 6,10
+	m_musKakarikoVillageChannel0Measure5 d3 g3 as3
+; Measure 7,11
+	m_musKakarikoVillageChannel0Measure5 g3 as3 f4
+; Measure 8,12
+	octave 3
+	beat r E1 f E2 ou c E1
+	beat ds E2 c E1 od f E2
+.endr
 
 ; Measure 13
-	octave 2
-	beat r 18 as 18 ou
-	.rept 2
-		beat as 18 g 18
-	.endr
+	m_musKakarikoVillageChannel0Measure13 as2 as3 g3
 ; Measure 14
-	beat r 18 c 18
-	.rept 2
-		beat a 18 f 18
-	.endr	
+	m_musKakarikoVillageChannel0Measure13 c3 a3 f3
 ; Measure 15
-	beat r 18 f 18
-	.rept 2
-		beat as 18 f 18
-	.endr
+	m_musKakarikoVillageChannel0Measure13 f3 as3 f3
 ; Measure 16
-	beat r 18 d 18
-	.rept 2
-		beat as 18 d 18
-	.endr
+	m_musKakarikoVillageChannel0Measure13 d3 as3 d3
 ; Measure 17
-	beat r 18 g 18
-	.rept 2
-		beat as 18 g 18
-	.endr
+	m_musKakarikoVillageChannel0Measure13 g3 as3 g3
 ; Measure 18
-	beat r 18 c 18
-	.rept 2
-		beat a 18 c 18
-	.endr
-; Measure 19
-	beat r 18 f 18
-	.rept 2
-		beat as 18 f 18
-	.endr
-; Measure 20/21
-	beat r 18 f 18
-	.rept 2
-		beat as 18 f 18
-	.endr
-
-	gotoCond $01 kakarikoVillageChannel0Measure22
-	incCoda
-	goto kakarikoVillageChannel0Measure5
-
-kakarikoVillageChannel0Measure22:
-; Measures 22-23,30-31
+	m_musKakarikoVillageChannel0Measure13 c3 a3 c3
 .rept 2
-	octave 2
-	beat r 18 as 18 ou
-	.rept 2
-		beat as 18 g 18
-	.endr
+; Measure 19,20,21
+	m_musKakarikoVillageChannel0Measure13 f3 as3 f3
 .endr
-; Measures 24-25,32-33
+.endr
+
+.rept 2 INDEX REPTCTR
 .rept 2
-	beat r 18 f 18
-	.rept 2
-		beat as 18 f 18
-	.endr
+; Measure 22-23,30-31
+	m_musKakarikoVillageChannel0Measure13 as2 as3 g3
+.endr
+.rept 2
+; Measure 24-25,32-33
+	m_musKakarikoVillageChannel0Measure13 f3 as3 f3
 .endr
 ; Measure 26,34
-	beat r 18 g 18
-	.rept 2
-		beat as 18 g 18
-	.endr	
+	m_musKakarikoVillageChannel0Measure13 g3 as3 g3
 ; Measure 27,35
-	beat r 18 c 18
-	.rept 2
-		beat a 18 c 18
-	.endr
+	m_musKakarikoVillageChannel0Measure13 c3 a3 c3
 ; Measure 28,36
-	beat r 18 f 18
-	.rept 2
-		beat as 18 f 18
-	.endr
+	m_musKakarikoVillageChannel0Measure13 f3 as3 f3
 
-	gotoCond $02 kakarikoVillageChannel0Measure1
-
+.ifeq REPTCTR 0
 ; Measure 29
-	beat r 18 f 18
-	.rept 2
-		beat gs 18 f 18
-	.endr
-
-	incCoda
-	goto kakarikoVillageChannel0Measure22
+	m_musKakarikoVillageChannel0Measure13 f3 gs3 f3
+.else ;REPTCTR == 1
+; Measure 37
+	goto musKakarikoVillageChannel0Measure1Loop
+.endif
+.endr
 	cmdff
 
-kakarikoVillageChannel4:
-kakarikoVillageChannel4Measure1:
-	resetCoda
-	.redefine BEAT 1
+.macro m_musKakarikoVillageChannel4Measure4
+	duty HI_VOL 
+	vibrato $e1
+	beat \1 HF+R1+R2
+	duty LO_VOL
+	vibrato $01
+	beat \1 R3
+.endm
 
+musKakarikoVillageChannel4:
+.redefine HI_VOL $17
+.redefine LO_VOL $08
+
+musKakarikoVillageChannel4Measure1Loop:
 ; Measure 1-3
-	beat r 255 r 69
+	rest (HF+Q)*2 
+	rest HF+Q
 ; Measure 4
-	duty $14
 	octave 2
-	beat f 108
-
-kakarikoVillageChannel4Measure5:
-; Measures 5-8,9-12
+	m_musKakarikoVillageChannel4Measure4 f2
 .rept 2
-	beat as 108 g 108 ou c 108 od f 108
-.endr
-; Measures 13-16
-	beat ds 108 f 108 as 108 g 108
-; Measures 17-18
-	beat ou c 108 od f 108
-; Measure 19-20/21
-	.redefine NOTE_END_WAIT 1
 .rept 2
-	beat as 108
+; Measure 5-8,9-12
+	m_musKakarikoVillageChannel4Measure4 as2
+	m_musKakarikoVillageChannel4Measure4 g2
+	m_musKakarikoVillageChannel4Measure4 c3
+	m_musKakarikoVillageChannel4Measure4 f2
 .endr
-
-	gotoCond $01 kakarikoVillageChannel4Measure22
-	incCoda
-	goto kakarikoVillageChannel4Measure5
-
-kakarikoVillageChannel4Measure22:
-;NOTE_END_WAIT == 1
-; Measures 22-23
-.rept 2
-	beat ds 108
+; Measure 13-16
+	m_musKakarikoVillageChannel4Measure4 ds2
+	m_musKakarikoVillageChannel4Measure4 f2
+	m_musKakarikoVillageChannel4Measure4 as2
+	m_musKakarikoVillageChannel4Measure4 g2
+; Measure 17-20/21
+	m_musKakarikoVillageChannel4Measure4 c3
+	m_musKakarikoVillageChannel4Measure4 f2
+	m_musKakarikoVillageChannel4Measure4 as2
+	m_musKakarikoVillageChannel4Measure4 as2
 .endr
-; Measures 24-25
-.rept 2
-	beat d 108
+.rept 2 INDEX REPTCTR
+; Measure 22-25,27-30
+	m_musKakarikoVillageChannel4Measure4 ds2
+	m_musKakarikoVillageChannel4Measure4 ds2
+	m_musKakarikoVillageChannel4Measure4 d2
+	m_musKakarikoVillageChannel4Measure4 d2
+; Measure 23-26,31-33
+	m_musKakarikoVillageChannel4Measure4 c3
+	m_musKakarikoVillageChannel4Measure4 f2
+	m_musKakarikoVillageChannel4Measure4 as2
+.ifeq REPTCTR 0
+	m_musKakarikoVillageChannel4Measure4 gs2
+.else
+	goto musKakarikoVillageChannel4Measure1Loop
+.endif
 .endr
-; Measures 26-28
-	.redefine NOTE_END_WAIT 0
-	octave 3
-	beat c 108 od f 108 as 108
-
-	gotoCond $02 kakarikoVillageChannel4Measure1
-
-; Measure 29
-	beat gs 108
-
-	incCoda
-	goto kakarikoVillageChannel4Measure22
 	cmdff
 
-kakarikoVillageChannel6:
-	cmdff
+.define musKakarikoVillageChannel6 MUSIC_CHANNEL_FALLBACK EXPORT
