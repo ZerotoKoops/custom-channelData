@@ -1,242 +1,208 @@
-kassThemeStart:
-; BPM 150, Quarter = 12*2, 3/4 time
-kassThemeChannel1:
-	.redefine BEAT 2
-.redefine NO_FIRST_VOL 0
-	duty $02
-kassThemeChannel1Measure1:
-	octave 4
+musKassThemeShortStart:
+	tempo 176
+musKassThemeShortChannel1:
+	.redefine HI_VOL $8
+	.redefine LO_VOL $6
+
 ; Measure 1
+	duty $01
 	vol $0
-	beat r 6
-	vol $6
-	beat e 9 f 3 e 3 ds 3 e 6 ou c 6
+	beat gs3 E1
+musKassThemeShortChannel1Measure1aLoop:
+; Measure 1a,17a
+	vol LO_VOL
+	vibrato $a2
+	env $1 $00
+	octave 4
+	beat e E2+S1 f S2 e S3 ds S4
+	beat e E1 ou c E2
 ; Measure 2
-	beat od b 36
-; Measure 3
-	beat r 6 e 9 f 3 e 3 ds 3 e 6 b 6
+	octaved
+	beat b HF+Q r E1
+; Measure 3a
+	beat e E2+S1 f S2 e S3 ds S4
+	beat e E1 b E2
 ; Measure 4
-	beat a 36
-; Measure 5
-	beat r 6 a 9 b 3 a 3 gs 3 a 6 ou g 6
+	beat a HF+Q r E1
+; Measure 5a
+	beat a E2+S1 b S2 a S3 gs S4
+	beat a E1 ou g E2
 ; Measure 6
-	beat f 3 r 15 f 3 r 3
-	.redefine NOTE_END_WAIT 9	
-	beat f 12
+	beat f S1 r S2+E2+E1 f S3 r S4
+	.redefine NOTE_END_WAIT S2+E2	
+	beat f Q
 ; Measure 7
-	beat f 12 g 12 f 12
+	beat f Q g Q f Q
 	.redefine NOTE_END_WAIT 0
 ; Measure 8
-	beat f 12 e 30 r 12
-; Measure 9
-	vol $8
-	beat c 6 d 6 e 3 r 3
+	beat f Q e HF+E1 r E2+E1
+; Measure 9c
+	vol HI_VOL
+	beat c E2 d E1 e S3 r S4
 ; Measure 10
-	beat e 18 d 3 r 3 d 18 r 12
+	beat e Q+E1 d S3 r S4 d Q+E1 r E2+E1
 ; Measure 11
-	beat d 6
-	beat e 6 d 6
+	beat d E2
+	beat e E1 d E2
 ; Measure 12
-	beat e 1 d 17 c 3 r 3 c 21 
-; Measure 13
-	octave 4
-	beat r 15 a 6 b 6
+	beat e T1 d T2+S2+E2+E1 c S1 r S2 c Q+E1+S3 r S4+Q 
+; Measure 13c
+	octaved
+	beat a E1 b E2
 ; Measure 14
-	vol $9
-	beat ou c 18 d 6 c 12
+	vol HI_VOL+1
+	octaveu
+	beat c Q+E1 d E2 c Q
 ; Measure 15
-	vol $8
-	.redefine NOTE_END_WAIT 9
-	beat od b 12 ou e 12 c 12
-	.redefine NOTE_END_WAIT 0
-
+	vol HI_VOL
+	vibrato $82
+	.redefine NOTE_END_WAIT S2+E2
+	octaved
+	beat b Q ou e Q c Q
 ; Measure 16
-	octave 4
-	beat a 36
+	vibrato $a2
+	.redefine NOTE_END_WAIT 0
+	octaved
+	beat a HF+Q r E1
 
-	goto kassThemeChannel1Measure1
+	goto musKassThemeShortChannel1Measure1aLoop
 	cmdff
 
-kassThemeChannel0:
-	.redefine BEAT 2
+musKassThemeShortChannel0:
+.redefine HI_VOL $6
+.redefine LO_VOL $4
 
-kassThemeChannel0Measure1:
 ; Measure 1
 	vol $0
-	beat r 48
-; Measure 2
-	vol $4
+	beat gs3 HF+Q+Q
+musKassThemeShortChannel0Measure2bLoop:
+; Measure 2b
+	vol LO_VOL-1
 	octave 4
-	duty $02
-	beat f 3 r 9 a 12
-; Measure 3
-	beat r 12 gs 3 r 9 gs 6 r 18
-; Measure 4
-	beat c 3 r 9 e 12
-; Measure 5
-	beat r 12 g 3 r 9 g 12
+	env $1 $00
+	vibrato $00
+	duty $00
+	beat f S1 r S2+E2 a Q r Q
+; Measure 3b
+	beat gs S1 r S2+E2 gs E1 r E2+Q
+; Measure 4b
+	beat c S1 r S2+E2 e Q r Q
+; Measure 5b
+	beat g S1 r S2+E2 g Q
 ; Measure 6
-	vol $6
+	vol LO_VOL
+	env $0 $00
+	vibrato $a1
 	octave 5
-	beat d 3 r 15 d 3 r 3
-	.redefine NOTE_END_WAIT 9	
-	beat d 12
+	beat d S1 r S2+E2+E1 d S1 r S2
+	.redefine NOTE_END_WAIT S2+E2	
+	beat d Q
 ; Measure 7
-	beat d 12 e 12 d 12
+	beat d Q e Q d Q
 	.redefine NOTE_END_WAIT 0
 ; Measure 8
-	beat d 12 c 30
-; Measure 9
-	beat r 6
-	vol $4
-	.redefine NOTE_END_WAIT 9
-	beat od g 12 e 12
+	beat d Q c HF+E1 r E2
+; Measure 9a
+	.redefine NOTE_END_WAIT S2+E2
+	vol LO_VOL-1
+	env $1 $00
+	vibrato $00
+	octaved
+	beat g Q e Q
 	.redefine NOTE_END_WAIT 0
 ; Measure 10
-	vol $8
-	octave 5
-	beat c 18 od as 3 r 3 as 21 r 3
-; Measure 11
-	vol $4
-	beat f 3 r 9 f 6 r 6
+	vol LO_VOL
+	vibrato $a1
+	env $0 $00
+	octaveu
+	beat c Q+E1 od as S3 r S4
+	beat as Q+E1+S3 r S4
+; Measure 11b
+	vol LO_VOL-1
+	env $1 $00
+	vibrato $00
+	beat f S1 r S2+E2 f E1 r E2
 ; Measure 12
-	vol $8
+	vol HI_VOL
+	vibrato $a1
+	env $0 $00
 	octave 5
-	beat c 1 od b 17 a 3 r 3 a 18 r 6
-; Measure 13
-	vol $4
-	.redefine NOTE_END_WAIT 9
-	beat g 12 g 12
+	beat c T1 od b T2+S2+E2+E1 a S3 r S4
+	beat a Q+E1 r E2
+; Measure 13b
+	.redefine NOTE_END_WAIT S2+E2
+	vol LO_VOL-1
+	vibrato $00
+	env $1 $00
+	beat g Q g Q
 	.redefine NOTE_END_WAIT 2
 ; Measure 14
-	vol $8
-	beat a 18 a 6 a 12
+	vibrato $a1
+	vol HI_VOL
+	beat a Q+E1 a E2 a Q
 ; Measures 15-16
-	beat gs 6 r 66
-	goto kassThemeChannel0Measure1
+	beat gs S1 r (S2+E2+HF)+(HF+Q)+(HF+Q)+Q
+	goto musKassThemeShortChannel0Measure2bLoop
 	cmdff
 
-kassThemeChannel4:
-	.redefine BEAT 6
+.macro m_musKassThemeShortChannel4Measure2
+	duty HI_VOL
+	beat \1 Q
+
+	duty LO_VOL
+	beat \2 S1 r S2+E2 \3 Q
+.endm
+
+musKassThemeShortChannel4:
+.redefine HI_VOL $0e
+.redefine LO_VOL $14;$0f
 
 ; Measure 1
-	beat r 12
-kassThemeChannel4Measure2:
+	beat r HF+Q
+musKassThemeShortChannel4Measure2Loop:
 ; Measure 2
-	octave 2
-	duty $0e
-	beat b 4
-
-	octave 4
-	duty $0f
-	beat d 1 r 3 f 4
+	m_musKassThemeShortChannel4Measure2 b2 d4 f4
 ; Measure 3
-	octave 2
-	duty $0e
-	beat e 4
-	
-	octave 4
-	duty $0f
-	beat d 1 r 3 c 4
+	m_musKassThemeShortChannel4Measure2 e2 d4 c4
 ; Measure 4
-	octave 2
-	duty $0e
-	beat a 4
-	
-	octave 3
-	duty $0f
-	beat a 1 r 3 ou c 4
+	m_musKassThemeShortChannel4Measure2 a2 a3 c4
 ; Measure 5
-	octave 2
-	duty $0e
-	beat a 4
-	
-	octave 4
-	duty $0f
-	beat cs 1 r 3 e 4
+	m_musKassThemeShortChannel4Measure2 a2 cs4 e4
 ; Measure 6
-	octave 3
-	duty $0a
-	beat d 4
-	
-	octave 4
-	duty $0e
-	beat d 1 r 3 f 4
+	m_musKassThemeShortChannel4Measure2 d3 d4 f4
 ; Measure 7
-	octave 2
-	duty $0a
-	beat g 4
-	
-	octave 4
-	duty $0e
-	beat f 1 r 3 d 4
+.redefine HI_VOL $0a
+.redefine LO_VOL $0e
+	m_musKassThemeShortChannel4Measure2 g2 f4 d4
 ; Measure 8
-	octave 3
-	duty $0a
-	beat c 4
-	
-	octave 4
-	duty $0e
-	beat g 1 r 3 e 4
+	m_musKassThemeShortChannel4Measure2 c3 g4 e4
 ; Measure 9
-	octave 3
-	duty $0a
-	beat c 4
-	
-	octave 4
-	duty $0e
-	beat e 1 r 3 c 4
+	m_musKassThemeShortChannel4Measure2 c3 e4 c4
 ; Measure 10
-	octave 2
-	duty $0a
-	beat as 4
-	
-	octave 4
-	duty $0e
-	beat f 1 r 3 d 4
+	m_musKassThemeShortChannel4Measure2 as2 f4 d4
 ; Measure 11
-	octave 2
-	duty $0a
-	beat as 4
-	
-	octave 4
-	duty $0e
-	beat d 1 r 3 od as 4
+	m_musKassThemeShortChannel4Measure2 as2 d4 as3
 ; Measure 12
-	octave 2
-	duty $0a
-	beat a 4
-	
-	octave 4
-	duty $0e
-	beat c 1 r 3 e 4
+	m_musKassThemeShortChannel4Measure2 a2 c4 e4
 ; Measure 13
-	octave 2
-	duty $0a
-	beat g 4
-	
-	octave 4
-	duty $0e
-	beat c 1 r 3 e 4
+	m_musKassThemeShortChannel4Measure2 g2 c4 e4
 ; Measure 14
-	octave 3
-	duty $0a
-	beat f 4
-	
-	octave 4
-	duty $0e
-	beat c 1 r 3 f 4
+	m_musKassThemeShortChannel4Measure2 f3 c4 f4
 ; Measure 15
 	octave 3
-	beat e 1 r 11
+	duty HI_VOL
+	beat e S1 r S2+E2+HF
 ; Measure 16
-	octave 2
-	beat a 4 ou e 4 c 4
+	duty LO_VOL
+	octaved
+	beat a Q
+	octaveu
+	beat e Q c Q
 ; Measure 17
-	beat od a 2 r 10
+	octaved
+	beat a E1 r E2+HF
 
-	goto kassThemeChannel4Measure2
+	goto musKassThemeShortChannel4Measure2Loop
 	cmdff
-	
-kassThemeChannel6:
-	cmdff
+
+.define musKassThemeShortChannel6 MUSIC_CHANNEL_FALLBACK EXPORT
