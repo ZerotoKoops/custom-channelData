@@ -1,6 +1,6 @@
-floroCavernsStart:
+musFloroCavernsStart:
 ; BPM = 132, B = 27, M = 108
-floroCavernsChannel1:
+musFloroCavernsChannel1:
 .redefine BEAT 1
 .redefine CHANNEL 1
 ; Measure 1
@@ -36,7 +36,7 @@ floroCavernsChannel1:
     vol $7
     beat od b 13
 
-floroCavernsChannel1Measure7Reset:
+musFloroCavernsChannel1Measure7Reset:
     resetCoda
 ; Measure 7
     octave 5
@@ -50,7 +50,7 @@ floroCavernsChannel1Measure7Reset:
     vibrato $00
     beat d 14 e 13
 
-floroCavernsChannel1Measure9:
+musFloroCavernsChannel1Measure9:
 ; Coda == 0,1
     incCoda
 ; Measure 9,13
@@ -65,12 +65,12 @@ floroCavernsChannel1Measure9:
 ; Measure 12,16
     beat cs 14 d 13 e 14 d 13
     beat cs 14 r 13
-    gotoCond 0+2 floroCavernsChannel1Measure16d
+    gotoCond 0+2 musFloroCavernsChannel1Measure16d
     beat cs 14 ds 13
 
-    goto floroCavernsChannel1Measure9
+    goto musFloroCavernsChannel1Measure9
 
-floroCavernsChannel1Measure16d:
+musFloroCavernsChannel1Measure16d:
 ; Coda == 2
 ; Measure 16d
     octave 4
@@ -118,7 +118,7 @@ floroCavernsChannel1Measure16d:
     beat ds 14 od b 6 ou ds 7
     beat cs 14 od b 13
 
-floroCavernsChannel1Measure25:
+musFloroCavernsChannel1Measure25:
 ; Coda == 2
 ; Measure 25,51
     octave 4
@@ -142,9 +142,9 @@ floroCavernsChannel1Measure25:
     env $0 $00
     beat ou e 27
 
-    gotoCond 4 floroCavernsChannel1Measure7Reset
+    gotoCond 4 musFloroCavernsChannel1Measure7Reset
 
-floroCavernsChannel1Measure29:
+musFloroCavernsChannel1Measure29:
 ; Coda == 2
     incCoda
 ; Measure 29,33
@@ -158,11 +158,11 @@ floroCavernsChannel1Measure29:
 ; Measure 30,34
     beat as 7 b 7 ou cs 13
     beat od as 14
-    gotoCond 2+2 floroCavernsChannel1Measure34b
+    gotoCond 2+2 musFloroCavernsChannel1Measure34b
     beat fs 4 gs 4 fs 5
     beat e 14 cs 13 e 14 gs 13
 
-floroCavernsChannel1Measure31:
+musFloroCavernsChannel1Measure31:
 ; Measure 31,35
     beat ou cs 27
     octave 4
@@ -174,19 +174,19 @@ floroCavernsChannel1Measure31:
     beat b 27
     beat as 4 b 5 as 5 fs 13
     beat gs 14 fs 13    
-    gotoCond 2+2 floroCavernsChannel1Measure36d
+    gotoCond 2+2 musFloroCavernsChannel1Measure36d
     beat gs 27
 
-    goto floroCavernsChannel1Measure29
+    goto musFloroCavernsChannel1Measure29
 
-floroCavernsChannel1Measure34b:
+musFloroCavernsChannel1Measure34b:
 ; Measure 34b
     octave 5
     beat cs 13
     beat e 14 gs 13 fs 14 e 13
-    goto floroCavernsChannel1Measure31
+    goto musFloroCavernsChannel1Measure31
 
-floroCavernsChannel1Measure36d:
+musFloroCavernsChannel1Measure36d:
 ; Coda == 4
 ; Measure 36d
     octave 4
@@ -262,13 +262,13 @@ floroCavernsChannel1Measure36d:
     beat f 27 gs 14 ds 13
     beat f 27 gs 14 fs 13
 
-    goto floroCavernsChannel1Measure25
+    goto musFloroCavernsChannel1Measure25
     cmdff
 
 
 
 
-floroCavernsChannel0:
+musFloroCavernsChannel0:
 .redefine BEAT 108
 .redefine CHANNEL 0
 ; Measure 1-2
@@ -278,7 +278,7 @@ floroCavernsChannel0:
     beat cs 1 f 1
     resetCoda
 
-floroCavernsChannel0Measure3:
+musFloroCavernsChannel0Measure3:
 .redefine BEAT 1
 ; Coda == 0
     incCoda
@@ -291,17 +291,17 @@ floroCavernsChannel0Measure3:
     beat cs 14 r 13
 .endr
     beat cs 14
-    gotoCond 0+4 floroCavernsChannel0Measure6d  
+    gotoCond 0+4 musFloroCavernsChannel0Measure6d  
     beat ds 13
 
-    goto floroCavernsChannel0Measure3
+    goto musFloroCavernsChannel0Measure3
 
-floroCavernsChannel0Measure6d:
+musFloroCavernsChannel0Measure6d:
 ; Coda == 4
 ; Measure 6d
     beat od b 13
 
-floroCavernsChannel0Measure7Reset:
+musFloroCavernsChannel0Measure7Reset:
     resetCoda
 ; Coda == 0
 ; Measure 7
@@ -315,7 +315,7 @@ floroCavernsChannel0Measure7Reset:
     beat cs 54
     beat e 14 r 13 d 14 r 13   
 
-floroCavernsChannel0Measure9:
+musFloroCavernsChannel0Measure9:
 ; Coda == 0,1
     incCoda
 ; Measure 9,13
@@ -334,12 +334,12 @@ floroCavernsChannel0Measure9:
 ; Measure 12,16
     beat gs 14 a 13 b 14 a 13
     beat gs 14 r 13
-    gotoCond 0+2 floroCavernsChannel0Measure16d
+    gotoCond 0+2 musFloroCavernsChannel0Measure16d
     beat r 27
 
-    goto floroCavernsChannel0Measure9
+    goto musFloroCavernsChannel0Measure9
 
-floroCavernsChannel0Measure16d:
+musFloroCavernsChannel0Measure16d:
 ; Coda == 2
 ; Measure 16d
     octave 4
@@ -394,7 +394,7 @@ floroCavernsChannel0Measure16d:
     beat ds 14 od b 6 ou ds 7
     beat cs 14 od b 13 
 
-floroCavernsChannel0Measure25:
+musFloroCavernsChannel0Measure25:
 ; Coda == 2
 ; Measure 25
     octave 3
@@ -528,13 +528,13 @@ floraCavernsChannel0Measure36d:
     env $0 $00
     beat e 27
 
-    goto floroCavernsChannel0Measure7Reset
+    goto musFloroCavernsChannel0Measure7Reset
     cmdff
 
 
 
 
-floroCavernsChannel4:
+musFloroCavernsChannel4:
 .redefine BEAT 54
 .redefine CHANNEL 4
 ; Measure 1-3
@@ -544,7 +544,7 @@ floroCavernsChannel4:
 ; Measure 4-6
     beat fs 2 a 2 b 1 ou d 1
 
-floroCavernsChannel4Measure7:
+musFloroCavernsChannel4Measure7:
 ; Measure 7
 .redefine BEAT 1
     octave 3
@@ -652,7 +652,7 @@ floroCavernsChannel4Measure7:
 ; Measure 51-54
     volbeat gs 216 cs 216
     
-    goto floroCavernsChannel4Measure7
+    goto musFloroCavernsChannel4Measure7
     cmdff
 
-.define floroCavernsChannel6 MUSIC_CHANNEL_FALLBACK EXPORT
+.define musFloroCavernsChannel6 MUSIC_CHANNEL_FALLBACK EXPORT
